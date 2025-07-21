@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage all user accounts in Shopping Mall CRM system">
+    <meta name="robots" content="index, follow">
+    <title>Manage Users | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search customers, staff, stores..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage User</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Title -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Manage User</h1>
+                </div>
+
+                <!-- Filters and Search -->
+                <section class="filter-section mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-6">
+                            <label for="user-search" class="form-label">Search Users</label>
+                            <input type="search" class="form-control" id="user-search" placeholder="Search by name, username, or email..." aria-label="Search users">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="user-type-filter" class="form-label">User Type</label>
+                            <select class="form-select" id="user-type-filter" name="user_type_filter">
+                                <option value="">All Types</option>
+                                <option value="admin">Admin</option>
+                                <option value="editor">Editor</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="status-filter" class="form-label">Status</label>
+                            <select class="form-select" id="status-filter" name="status_filter">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recently Accessed Users -->
+                <section class="users-table-section">
+                    <div class="section-header mb-3">
+                        <h2>Recently Accessed Users</h2>
+                        <a href="add_user.html" class="btn btn-primary">
+                            <i class="bi bi-person-plus"></i> Add New User
+                        </a>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table users-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Name">
+                                                Name <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Username">
+                                                Username <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">User Image</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Password Expiry">
+                                                Password Expiry Date <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Locked</th>
+                                        <th scope="col">Active</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="user-info">
+                                                <strong>Arif Islam</strong>
+                                                <small class="text-muted d-block">Store Manager</small>
+                                            </div>
+                                        </td>   
+                                        <td>demoname</td>
+                                        <td>
+                                            <div class="user-avatar">
+                                                <img src="https://via.placeholder.com/40x40/697565/ECDFCC?text=AR" alt="Arif Rahman profile picture" class="rounded-circle">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="expiry-date">1/27/2025</span>
+                                            <small class="text-warning d-block">Expires soon</small>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="locked-1" class="toggle-input">
+                                                <label for="locked-1" class="toggle-label" aria-label="Toggle locked status">
+                                                    <span class="toggle-text">False</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="active-1" class="toggle-input" checked>
+                                                <label for="active-1" class="toggle-label" aria-label="Toggle active status">
+                                                    <span class="toggle-text">True</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="add_user.html" class="btn btn-sm btn-outline-primary" title="Edit user">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-danger" title="Delete user" onclick="confirmDelete('Arif Rahman')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="user-info">
+                                                <strong>Sayan Banik</strong>
+                                                <small class="text-muted d-block">Security Staff</small>
+                                            </div>
+                                        </td>
+                                        <td>sayan.b</td>
+                                        <td>
+                                            <div class="user-avatar">
+                                                <img src="https://via.placeholder.com/40x40/697565/ECDFCC?text=SJ" alt="Sarah Johnson profile picture" class="rounded-circle">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="expiry-date">3/15/2025</span>
+                                            <small class="text-success d-block">Valid</small>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="locked-2" class="toggle-input">
+                                                <label for="locked-2" class="toggle-label" aria-label="Toggle locked status">
+                                                    <span class="toggle-text">False</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="active-2" class="toggle-input" checked>
+                                                <label for="active-2" class="toggle-label" aria-label="Toggle active status">
+                                                    <span class="toggle-text">True</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="add_user.html" class="btn btn-sm btn-outline-primary" title="Edit user">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-danger" title="Delete user" onclick="confirmDelete('Sarah Johnson')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="user-info">
+                                                <strong>Sribash Sarkar</strong>
+                                                <small class="text-muted d-block">IT Support</small>
+                                            </div>
+                                        </td>
+                                        <td>sribash.sarkar</td>
+                                        <td>
+                                            <div class="user-avatar">
+                                                <img src="https://via.placeholder.com/40x40/697565/ECDFCC?text=MC" alt="Mike Chen profile picture" class="rounded-circle">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="expiry-date">6/10/2025</span>
+                                            <small class="text-success d-block">Valid</small>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="locked-3" class="toggle-input" checked>
+                                                <label for="locked-3" class="toggle-label" aria-label="Toggle locked status">
+                                                    <span class="toggle-text">True</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="active-3" class="toggle-input">
+                                                <label for="active-3" class="toggle-label" aria-label="Toggle active status">
+                                                    <span class="toggle-text">False</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="add_user.html" class="btn btn-sm btn-outline-primary" title="Edit user">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-danger" title="Delete user" onclick="confirmDelete('Mike Chen')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="User table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function confirmDelete(userName) {
+            if (confirm(`Are you sure you want to delete user: ${userName}?`)) {
+                // Handle delete action here
+                alert(`User ${userName} would be deleted`);
+            }
+        }
+    </script>
+</body>
+</html>
