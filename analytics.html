@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analytics Dashboard - Mall CRM comprehensive business analytics and insights">
+    <meta name="robots" content="index, follow">
+    <title>Analytics Dashboard | Mall CRM</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search analytics, reports..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Analytics</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header with Time Period Selector -->
+                <div class="page-header mb-4">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <h1 class="page-title">Analytics Dashboard</h1>
+                        <div class="analytics-controls">
+                            <select class="form-select form-select-sm d-inline-block w-auto me-2" id="timePeriod">
+                                <option value="7">Last 7 Days</option>
+                                <option value="30" selected>Last 30 Days</option>
+                                <option value="90">Last 3 Months</option>
+                                <option value="365">Last Year</option>
+                            </select>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-download"></i> Export Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Performance Indicators -->
+                <section class="kpi-section mb-4">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="stat-card analytics-kpi">
+                                <div class="stat-header">
+                                    <h3>Total Revenue</h3>
+                                    <i class="bi bi-currency-rupee text-success"></i>
+                                </div>
+                                <div class="stat-value">₹1.2Cr</div>
+                                <div class="stat-change positive">+18.2% vs Last Period</div>
+                                <div class="kpi-trend">
+                                    <small class="text-muted">Trending upward</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="stat-card analytics-kpi">
+                                <div class="stat-header">
+                                    <h3>Footfall</h3>
+                                    <i class="bi bi-people text-primary"></i>
+                                </div>
+                                <div class="stat-value">456K</div>
+                                <div class="stat-change positive">+12.5% vs Last Period</div>
+                                <div class="kpi-trend">
+                                    <small class="text-muted">Peak: Weekends</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="stat-card analytics-kpi">
+                                <div class="stat-header">
+                                    <h3>Conversion Rate</h3>
+                                    <i class="bi bi-graph-up text-warning"></i>
+                                </div>
+                                <div class="stat-value">67.8%</div>
+                                <div class="stat-change positive">+3.4% vs Last Period</div>
+                                <div class="kpi-trend">
+                                    <small class="text-muted">Above target</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="stat-card analytics-kpi">
+                                <div class="stat-header">
+                                    <h3>Avg. Spend/Visitor</h3>
+                                    <i class="bi bi-bag text-info"></i>
+                                </div>
+                                <div class="stat-value">₹2,847</div>
+                                <div class="stat-change negative">-2.1% vs Last Period</div>
+                                <div class="kpi-trend">
+                                    <small class="text-muted">Needs attention</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-section mb-4">
+                    <div class="row g-4">
+                        <!-- Revenue Trend Chart -->
+                        <div class="col-lg-8">
+                            <div class="chart-container analytics-chart">
+                                <div class="chart-header">
+                                    <h4>Revenue Trends</h4>
+                                    <div class="chart-controls">
+                                        <div class="btn-group" role="group">
+                                            <input type="radio" class="btn-check" name="revenueChart" id="dailyRevenue" checked>
+                                            <label class="btn btn-outline-primary btn-sm" for="dailyRevenue">Daily</label>
+                                            
+                                            <input type="radio" class="btn-check" name="revenueChart" id="weeklyRevenue">
+                                            <label class="btn btn-outline-primary btn-sm" for="weeklyRevenue">Weekly</label>
+                                            
+                                            <input type="radio" class="btn-check" name="revenueChart" id="monthlyRevenue">
+                                            <label class="btn btn-outline-primary btn-sm" for="monthlyRevenue">Monthly</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-placeholder large">
+                                    <canvas id="revenueChart" aria-label="Revenue trends chart"></canvas>
+                                    <p class="text-center mt-3">Revenue trend analysis over selected time period</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Performance -->
+                        <div class="col-lg-4">
+                            <div class="chart-container analytics-chart">
+                                <div class="chart-header">
+                                    <h4>Category Performance</h4>
+                                    <p class="chart-subtitle">Revenue by store category</p>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <canvas id="categoryChart" aria-label="Category performance chart"></canvas>
+                                    <div class="category-legend mt-3">
+                                        <div class="legend-item">
+                                            <span class="legend-color fashion"></span>
+                                            <span class="legend-text">Fashion (35%)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color food"></span>
+                                            <span class="legend-text">Food & Beverages (28%)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color electronics"></span>
+                                            <span class="legend-text">Electronics (20%)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color others"></span>
+                                            <span class="legend-text">Others (17%)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footfall & Peak Hours Analysis -->
+                <section class="footfall-section mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="chart-container analytics-chart">
+                                <div class="chart-header">
+                                    <h4>Daily Footfall Pattern</h4>
+                                    <p class="chart-subtitle">Visitor traffic by day of week</p>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <canvas id="footfallChart" aria-label="Daily footfall pattern chart"></canvas>
+                                    <p class="text-center mt-3">Weekly visitor pattern analysis</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="chart-container analytics-chart">
+                                <div class="chart-header">
+                                    <h4>Peak Hours Analysis</h4>
+                                    <p class="chart-subtitle">Hourly visitor distribution</p>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <canvas id="peakHoursChart" aria-label="Peak hours analysis chart"></canvas>
+                                    <p class="text-center mt-3">Peak shopping hours identification</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Performance Metrics Table -->
+                <section class="performance-table-section mb-4">
+                    <div class="row g-4">
+                        <!-- Top Performing Stores -->
+                        <div class="col-lg-6">
+                            <div class="analytics-table-container">
+                                <div class="table-header">
+                                    <h4>Top Performing Stores</h4>
+                                    <p class="table-subtitle">By revenue in selected period</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table performance-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Store Name</th>
+                                                <th>Revenue</th>
+                                                <th>Growth</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="rank-badge gold">1</span></td>
+                                                <td>
+                                                    <div class="store-info-mini">
+                                                        <strong>Zara Fashion</strong>
+                                                        <small>Fashion & Apparel</small>
+                                                    </div>
+                                                </td>
+                                                <td>₹8,45,000</td>
+                                                <td><span class="growth-positive">+22%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank-badge silver">2</span></td>
+                                                <td>
+                                                    <div class="store-info-mini">
+                                                        <strong>Apple Store</strong>
+                                                        <small>Electronics</small>
+                                                    </div>
+                                                </td>
+                                                <td>₹7,89,000</td>
+                                                <td><span class="growth-positive">+18%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank-badge bronze">3</span></td>
+                                                <td>
+                                                    <div class="store-info-mini">
+                                                        <strong>H&M</strong>
+                                                        <small>Fashion & Apparel</small>
+                                                    </div>
+                                                </td>
+                                                <td>₹6,32,000</td>
+                                                <td><span class="growth-positive">+15%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank-number">4</span></td>
+                                                <td>
+                                                    <div class="store-info-mini">
+                                                        <strong>Starbucks</strong>
+                                                        <small>Food & Beverages</small>
+                                                    </div>
+                                                </td>
+                                                <td>₹5,67,000</td>
+                                                <td><span class="growth-positive">+12%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rank-number">5</span></td>
+                                                <td>
+                                                    <div class="store-info-mini">
+                                                        <strong>Samsung Store</strong>
+                                                        <small>Electronics</small>
+                                                    </div>
+                                                </td>
+                                                <td>₹4,98,000</td>
+                                                <td><span class="growth-positive">+8%</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Insights -->
+                        <div class="col-lg-6">
+                            <div class="analytics-table-container">
+                                <div class="table-header">
+                                    <h4>Customer Insights</h4>
+                                    <p class="table-subtitle">Demographic and behavioral analysis</p>
+                                </div>
+                                <div class="insights-grid">
+                                    <div class="insight-item">
+                                        <div class="insight-icon">
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+                                        <div class="insight-content">
+                                            <h5>Age Demographics</h5>
+                                            <div class="demographic-bar">
+                                                <div class="demo-segment" style="width: 35%;" title="18-25 years">18-25 (35%)</div>
+                                                <div class="demo-segment" style="width: 40%;" title="26-35 years">26-35 (40%)</div>
+                                                <div class="demo-segment" style="width: 25%;" title="36+ years">36+ (25%)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="insight-item">
+                                        <div class="insight-icon">
+                                            <i class="bi bi-clock-fill"></i>
+                                        </div>
+                                        <div class="insight-content">
+                                            <h5>Avg. Visit Duration</h5>
+                                            <p class="insight-value">2h 35m</p>
+                                            <small class="text-success">+15min vs last period</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="insight-item">
+                                        <div class="insight-icon">
+                                            <i class="bi bi-heart-fill"></i>
+                                        </div>
+                                        <div class="insight-content">
+                                            <h5>Customer Satisfaction</h5>
+                                            <div class="satisfaction-score">
+                                                <span class="score">4.2</span>
+                                                <div class="stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="insight-item">
+                                        <div class="insight-icon">
+                                            <i class="bi bi-arrow-repeat"></i>
+                                        </div>
+                                        <div class="insight-content">
+                                            <h5>Repeat Visitors</h5>
+                                            <p class="insight-value">68%</p>
+                                            <small class="text-success">+5% vs last period</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions & Export -->
+                <section class="analytics-actions mb-4">
+                    <div class="actions-container">
+                        <h4>Quick Actions</h4>
+                        <div class="actions-grid">
+                            <button class="action-card">
+                                <i class="bi bi-file-earmark-excel"></i>
+                                <span>Export to Excel</span>
+                            </button>
+                            <button class="action-card">
+                                <i class="bi bi-file-earmark-pdf"></i>
+                                <span>Generate PDF Report</span>
+                            </button>
+                            <button class="action-card">
+                                <i class="bi bi-envelope"></i>
+                                <span>Email Report</span>
+                            </button>
+                            <button class="action-card">
+                                <i class="bi bi-calendar-event"></i>
+                                <span>Schedule Report</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

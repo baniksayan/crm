@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store Management - Mall CRM Dashboard for managing stores, inventory, and operations">
+    <meta name="robots" content="index, follow">
+    <title>Store Management | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search stores, products, inventory..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Store Management</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Store Management</h1>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStoreModal">
+                        <i class="bi bi-plus-lg"></i> Add New Store
+                    </button>
+                </div>
+
+                <!-- Store Stats Overview -->
+                <section class="store-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Total Stores</h3>
+                                    <span class="time-filter">Active</span>
+                                </div>
+                                <div class="stat-value">156</div>
+                                <div class="stat-change positive">+8 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Occupied Spaces</h3>
+                                    <span class="time-filter">Current</span>
+                                </div>
+                                <div class="stat-value">142</div>
+                                <div class="stat-change positive">91% Occupancy</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Pending Renewals</h3>
+                                    <span class="time-filter">30 Days</span>
+                                </div>
+                                <div class="stat-value">12</div>
+                                <div class="stat-change negative">Needs Attention</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Revenue</h3>
+                                    <span class="time-filter">Monthly</span>
+                                </div>
+                                <div class="stat-value">₹45.2L</div>
+                                <div class="stat-change positive">+15% vs Last Month</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Store Categories -->
+                <section class="store-categories mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <div class="category-icon fashion"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Fashion & Apparel</span>
+                                        <span class="category-count">45 Stores</span>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <div class="category-icon food"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Food & Beverages</span>
+                                        <span class="category-count">32 Stores</span>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <div class="category-icon electronics"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Electronics</span>
+                                        <span class="category-count">28 Stores</span>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <div class="category-icon lifestyle"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Lifestyle & Beauty</span>
+                                        <span class="category-count">25 Stores</span>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <div class="category-icon entertainment"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Entertainment</span>
+                                        <span class="category-count">15 Stores</span>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <div class="category-icon services"></div>
+                                    <div class="category-info">
+                                        <span class="category-label">Services</span>
+                                        <span class="category-count">11 Stores</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="chart-container">
+                                <h4>Store Distribution</h4>
+                                <p class="chart-subtitle">By category and floor</p>
+                                <div class="chart-placeholder">
+                                    <canvas id="storeDistributionChart" aria-label="Store distribution chart"></canvas>
+                                    <p class="text-center mt-3">Store category distribution chart</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Filters -->
+                <section class="filter-section mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="store-search" class="form-label">Search Stores</label>
+                            <input type="search" class="form-control" id="store-search" placeholder="Search by name, category, or location..." aria-label="Search stores">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="category-filter" class="form-label">Category</label>
+                            <select class="form-select" id="category-filter">
+                                <option value="">All Categories</option>
+                                <option value="fashion">Fashion & Apparel</option>
+                                <option value="food">Food & Beverages</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="lifestyle">Lifestyle & Beauty</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="services">Services</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="floor-filter" class="form-label">Floor</label>
+                            <select class="form-select" id="floor-filter">
+                                <option value="">All Floors</option>
+                                <option value="ground">Ground Floor</option>
+                                <option value="first">First Floor</option>
+                                <option value="second">Second Floor</option>
+                                <option value="third">Third Floor</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="status-filter" class="form-label">Status</label>
+                            <select class="form-select" id="status-filter">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="renovation">Under Renovation</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Store List -->
+                <section class="stores-table-section">
+                    <div class="section-header mb-3">
+                        <h2>Store Directory</h2>
+                        <div class="view-toggle">
+                            <button class="btn btn-outline-primary btn-sm active" data-view="table">
+                                <i class="bi bi-list"></i> Table View
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" data-view="grid">
+                                <i class="bi bi-grid-3x3"></i> Grid View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container" id="tableView">
+                        <div class="table-responsive">
+                            <table class="table stores-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Store Name">
+                                                Store Name <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">Area (sq ft)</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Monthly Revenue">
+                                                Monthly Revenue <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Lease Expiry</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="store-info">
+                                                <div class="store-avatar">ZA</div>
+                                                <div>
+                                                    <strong>Zara Fashion</strong>
+                                                    <small class="text-muted d-block">Premium Fashion Brand</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">Fashion & Apparel</span></td>
+                                        <td>Ground Floor - G-12</td>
+                                        <td>2,500</td>
+                                        <td>₹3,25,000</td>
+                                        <td>
+                                            <span class="expiry-date text-success">Dec 2025</span>
+                                            <small class="text-success d-block">Valid</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Store">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Contact">
+                                                    <i class="bi bi-telephone"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="store-info">
+                                                <div class="store-avatar">MC</div>
+                                                <div>
+                                                    <strong>McDonald's</strong>
+                                                    <small class="text-muted d-block">Fast Food Chain</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">Food & Beverages</span></td>
+                                        <td>First Floor - F-08</td>
+                                        <td>1,200</td>
+                                        <td>₹2,10,000</td>
+                                        <td>
+                                            <span class="expiry-date text-warning">Mar 2025</span>
+                                            <small class="text-warning d-block">Renewal Due</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Store">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Contact">
+                                                    <i class="bi bi-telephone"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="store-info">
+                                                <div class="store-avatar">AP</div>
+                                                <div>
+                                                    <strong>Apple Store</strong>
+                                                    <small class="text-muted d-block">Electronics & Accessories</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-info">Electronics</span></td>
+                                        <td>Second Floor - S-05</td>
+                                        <td>1,800</td>
+                                        <td>₹4,50,000</td>
+                                        <td>
+                                            <span class="expiry-date text-success">Sep 2026</span>
+                                            <small class="text-success d-block">Long Term</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Renovation</span>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Store">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Contact">
+                                                    <i class="bi bi-telephone"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Store table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Store Modal -->
+    <div class="modal fade" id="addStoreModal" tabindex="-1" aria-labelledby="addStoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addStoreModalLabel">Add New Store</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="storeName" class="form-label required">Store Name</label>
+                                <input type="text" class="form-control" id="storeName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeCategory" class="form-label required">Category</label>
+                                <select class="form-select" id="storeCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="fashion">Fashion & Apparel</option>
+                                    <option value="food">Food & Beverages</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="lifestyle">Lifestyle & Beauty</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="services">Services</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeLocation" class="form-label required">Location</label>
+                                <input type="text" class="form-control" id="storeLocation" placeholder="e.g., Ground Floor - G-15" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeArea" class="form-label required">Area (sq ft)</label>
+                                <input type="number" class="form-control" id="storeArea" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="monthlyRent" class="form-label required">Monthly Rent (₹)</label>
+                                <input type="number" class="form-control" id="monthlyRent" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="leaseExpiry" class="form-label required">Lease Expiry</label>
+                                <input type="date" class="form-control" id="leaseExpiry" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="storeDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="storeDescription" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Store</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
