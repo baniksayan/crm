@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tasks & Activities - Mall CRM Dashboard for managing follow-ups and daily activities">
+    <meta name="robots" content="index, follow">
+    <title>Tasks & Activities | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search tasks, activities, follow-ups..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals_opportunities.html">
+                            <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tasks_activities.html">
+                            <i class="bi bi-check2-square"></i> Tasks & Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="marketing.html">
+        <i class="bi bi-megaphone"></i> Marketing
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="support_service.html">
+        <i class="bi bi-headset"></i> Support & Service
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="products_services.html">
+        <i class="bi bi-box-seam"></i> Products & Services
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="documents.html">
+        <i class="bi bi-file-text"></i> Documents
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tasks & Activities</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Tasks & Activities</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#calendarModal">
+                            <i class="bi bi-calendar3"></i> Calendar View
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+                            <i class="bi bi-plus-lg"></i> Add New Task
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Task Statistics Overview -->
+                <section class="task-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card task-stat">
+                                <div class="stat-header">
+                                    <h3>Total Tasks</h3>
+                                    <i class="bi bi-list-task text-primary"></i>
+                                </div>
+                                <div class="stat-value">127</div>
+                                <div class="stat-change positive">+18 This Week</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card task-stat">
+                                <div class="stat-header">
+                                    <h3>Completed Today</h3>
+                                    <i class="bi bi-check-circle text-success"></i>
+                                </div>
+                                <div class="stat-value">23</div>
+                                <div class="stat-change positive">85% Completion Rate</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card task-stat">
+                                <div class="stat-header">
+                                    <h3>Overdue</h3>
+                                    <i class="bi bi-exclamation-circle text-danger"></i>
+                                </div>
+                                <div class="stat-value">8</div>
+                                <div class="stat-change negative">Needs Attention</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card task-stat">
+                                <div class="stat-header">
+                                    <h3>Follow-ups Due</h3>
+                                    <i class="bi bi-arrow-repeat text-warning"></i>
+                                </div>
+                                <div class="stat-value">15</div>
+                                <div class="stat-change neutral">Next 3 Days</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Today's Schedule -->
+                <section class="todays-schedule mb-4">
+                    <div class="schedule-header">
+                        <h3>Today's Schedule</h3>
+                        <div class="schedule-date">
+                            <span class="date-text">Wednesday, July 23, 2025</span>
+                            <div class="schedule-nav">
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-timeline">
+                        <div class="timeline-hour">
+                            <div class="hour-label">09:00 AM</div>
+                            <div class="hour-activities">
+                                <div class="activity-item meeting">
+                                    <div class="activity-time">09:00 - 10:30</div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Lease Renewal Meeting</div>
+                                        <div class="activity-details">
+                                            <span class="activity-client">Zara Fashion</span>
+                                            <span class="activity-location">Conference Room A</span>
+                                        </div>
+                                        <div class="activity-priority high">High Priority</div>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="btn btn-sm btn-success" title="Mark Complete">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-hour">
+                            <div class="hour-label">11:00 AM</div>
+                            <div class="hour-activities">
+                                <div class="activity-item call">
+                                    <div class="activity-time">11:15 - 11:45</div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Follow-up Call</div>
+                                        <div class="activity-details">
+                                            <span class="activity-client">TechZone Electronics</span>
+                                            <span class="activity-location">Phone Call</span>
+                                        </div>
+                                        <div class="activity-priority medium">Medium Priority</div>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="btn btn-sm btn-success" title="Mark Complete">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-hour">
+                            <div class="hour-label">02:00 PM</div>
+                            <div class="hour-activities">
+                                <div class="activity-item task">
+                                    <div class="activity-time">02:00 - 03:00</div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Prepare Contract Documents</div>
+                                        <div class="activity-details">
+                                            <span class="activity-client">Premium Sports</span>
+                                            <span class="activity-location">Office</span>
+                                        </div>
+                                        <div class="activity-priority low">Low Priority</div>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="btn btn-sm btn-success" title="Mark Complete">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-hour">
+                            <div class="hour-label">04:00 PM</div>
+                            <div class="hour-activities">
+                                <div class="activity-item email">
+                                    <div class="activity-time">04:30 - 04:45</div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Send Lease Proposal</div>
+                                        <div class="activity-details">
+                                            <span class="activity-client">Fashion Hub Inc.</span>
+                                            <span class="activity-location">Email</span>
+                                        </div>
+                                        <div class="activity-priority high">High Priority</div>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="btn btn-sm btn-success" title="Mark Complete">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Task Categories & Quick Actions -->
+                <section class="task-categories mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="task-boards">
+                                <h4>Task Boards</h4>
+                                <div class="board-container">
+                                    <div class="task-board">
+                                        <div class="board-header">
+                                            <h5>To Do</h5>
+                                            <span class="task-count">28</span>
+                                        </div>
+                                        <div class="board-tasks">
+                                            <div class="task-card urgent">
+                                                <div class="task-header">
+                                                    <div class="task-title">Review Lease Agreement</div>
+                                                    <div class="task-priority urgent">Urgent</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">McDonald's</span>
+                                                    <span class="task-due">Due: Today</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">AS</div>
+                                                    <span>Andrew Starlin</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="task-card normal">
+                                                <div class="task-header">
+                                                    <div class="task-title">Site Inspection</div>
+                                                    <div class="task-priority medium">Medium</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">Beauty Boutique</span>
+                                                    <span class="task-due">Due: Tomorrow</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">SM</div>
+                                                    <span>Sales Manager</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="task-card normal">
+                                                <div class="task-header">
+                                                    <div class="task-title">Prepare Financial Report</div>
+                                                    <div class="task-priority low">Low</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">Monthly Report</span>
+                                                    <span class="task-due">Due: July 25</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">AS</div>
+                                                    <span>Andrew Starlin</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-tasks">
+                                                <span>+25 more tasks</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="task-board">
+                                        <div class="board-header">
+                                            <h5>In Progress</h5>
+                                            <span class="task-count">12</span>
+                                        </div>
+                                        <div class="board-tasks">
+                                            <div class="task-card normal">
+                                                <div class="task-header">
+                                                    <div class="task-title">Contract Negotiation</div>
+                                                    <div class="task-priority high">High</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">Zara Fashion</span>
+                                                    <span class="task-progress">80% Complete</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">AS</div>
+                                                    <span>Andrew Starlin</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="task-card normal">
+                                                <div class="task-header">
+                                                    <div class="task-title">Space Planning</div>
+                                                    <div class="task-priority medium">Medium</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">Premium Sports</span>
+                                                    <span class="task-progress">60% Complete</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">LT</div>
+                                                    <span>Leasing Team</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-tasks">
+                                                <span>+10 more tasks</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="task-board">
+                                        <div class="board-header">
+                                            <h5>Review</h5>
+                                            <span class="task-count">8</span>
+                                        </div>
+                                        <div class="board-tasks">
+                                            <div class="task-card normal">
+                                                <div class="task-header">
+                                                    <div class="task-title">Lease Terms Finalization</div>
+                                                    <div class="task-priority high">High</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">TechZone Electronics</span>
+                                                    <span class="task-status">Awaiting Approval</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">AS</div>
+                                                    <span>Andrew Starlin</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-tasks">
+                                                <span>+7 more tasks</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="task-board">
+                                        <div class="board-header">
+                                            <h5>Completed</h5>
+                                            <span class="task-count">35</span>
+                                        </div>
+                                        <div class="board-tasks">
+                                            <div class="task-card completed">
+                                                <div class="task-header">
+                                                    <div class="task-title">Contract Signed</div>
+                                                    <div class="task-status completed">Completed</div>
+                                                </div>
+                                                <div class="task-details">
+                                                    <span class="task-client">Coffee Culture</span>
+                                                    <span class="task-completed">Completed Today</span>
+                                                </div>
+                                                <div class="task-assignee">
+                                                    <div class="assignee-avatar">AS</div>
+                                                    <span>Andrew Starlin</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-tasks">
+                                                <span>+34 more completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="activity-summary">
+                                <h4>Recent Activities</h4>
+                                <div class="activity-feed">
+                                    <div class="feed-item">
+                                        <div class="feed-icon completed">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                        <div class="feed-content">
+                                            <div class="feed-action">Task completed</div>
+                                            <div class="feed-description">Contract signed with Coffee Culture</div>
+                                            <div class="feed-time">2 hours ago</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="feed-item">
+                                        <div class="feed-icon created">
+                                            <i class="bi bi-plus-circle-fill"></i>
+                                        </div>
+                                        <div class="feed-content">
+                                            <div class="feed-action">New task created</div>
+                                            <div class="feed-description">Site inspection for Beauty Boutique</div>
+                                            <div class="feed-time">4 hours ago</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="feed-item">
+                                        <div class="feed-icon updated">
+                                            <i class="bi bi-arrow-clockwise"></i>
+                                        </div>
+                                        <div class="feed-content">
+                                            <div class="feed-action">Task updated</div>
+                                            <div class="feed-description">Zara Fashion negotiation moved to 80%</div>
+                                            <div class="feed-time">6 hours ago</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="feed-item">
+                                        <div class="feed-icon meeting">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                        <div class="feed-content">
+                                            <div class="feed-action">Meeting scheduled</div>
+                                            <div class="feed-description">Premium Sports contract discussion</div>
+                                            <div class="feed-time">Yesterday</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="feed-item">
+                                        <div class="feed-icon overdue">
+                                            <i class="bi bi-exclamation-triangle-fill"></i>
+                                        </div>
+                                        <div class="feed-content">
+                                            <div class="feed-action">Task overdue</div>
+                                            <div class="feed-description">McDonald's lease review</div>
+                                            <div class="feed-time">Yesterday</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Task Filters -->
+                <section class="task-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="task-search" class="form-label">Search Tasks</label>
+                            <input type="search" class="form-control" id="task-search" placeholder="Search by title, client, or description..." aria-label="Search tasks">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="task-status" class="form-label">Status</label>
+                            <select class="form-select" id="task-status">
+                                <option value="">All Status</option>
+                                <option value="todo">To Do</option>
+                                <option value="progress">In Progress</option>
+                                <option value="review">In Review</option>
+                                <option value="completed">Completed</option>
+                                <option value="overdue">Overdue</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="task-priority" class="form-label">Priority</label>
+                            <select class="form-select" id="task-priority">
+                                <option value="">All Priorities</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="task-assignee" class="form-label">Assignee</label>
+                            <select class="form-select" id="task-assignee">
+                                <option value="">All Assignees</option>
+                                <option value="andrew">Andrew Starlin</option>
+                                <option value="sales">Sales Manager</option>
+                                <option value="leasing">Leasing Team</option>
+                                <option value="me">Assigned to Me</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tasks List Table -->
+                <section class="tasks-table-section">
+                    <div class="section-header mb-3">
+                        <h2>All Tasks & Activities</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="tasksView" id="listViewTasks" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="listViewTasks">
+                                    <i class="bi bi-list"></i> List View
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="tasksView" id="boardViewTasks">
+                                <label class="btn btn-outline-primary btn-sm" for="boardViewTasks">
+                                    <i class="bi bi-kanban"></i> Board View
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table tasks-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="30">
+                                            <input type="checkbox" class="form-check-input" id="selectAll">
+                                        </th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Task">
+                                                Task <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Client/Related</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Priority</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Due Date">
+                                                Due Date <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Assignee</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="task-row overdue">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="task-info">
+                                                <div class="task-title-main">Review Lease Agreement</div>
+                                                <small class="text-muted">Review and approve lease renewal terms</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="client-info-mini">
+                                                <div class="client-avatar-mini">MC</div>
+                                                <span>McDonald's</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">Follow-up</span></td>
+                                        <td><span class="priority-indicator urgent">Urgent</span></td>
+                                        <td><span class="status-badge overdue">Overdue</span></td>
+                                        <td>
+                                            <span class="due-date overdue">July 22, 2025</span>
+                                            <small class="text-danger d-block">1 day overdue</small>
+                                        </td>
+                                        <td>
+                                            <div class="assignee-info">
+                                                <div class="assignee-avatar-mini">AS</div>
+                                                <span>Andrew Starlin</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-success" title="Mark Complete">
+                                                    <i class="bi bi-check"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#taskDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Task">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="task-row">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="task-info">
+                                                <div class="task-title-main">Contract Negotiation Meeting</div>
+                                                <small class="text-muted">Discuss renewal terms and pricing</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="client-info-mini">
+                                                <div class="client-avatar-mini">ZA</div>
+                                                <span>Zara Fashion</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">Meeting</span></td>
+                                        <td><span class="priority-indicator high">High</span></td>
+                                        <td><span class="status-badge progress">In Progress</span></td>
+                                        <td>
+                                            <span class="due-date">July 23, 2025</span>
+                                            <small class="text-success d-block">Due Today</small>
+                                        </td>
+                                        <td>
+                                            <div class="assignee-info">
+                                                <div class="assignee-avatar-mini">AS</div>
+                                                <span>Andrew Starlin</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-success" title="Mark Complete">
+                                                    <i class="bi bi-check"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#taskDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Task">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="task-row">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="task-info">
+                                                <div class="task-title-main">Site Inspection</div>
+                                                <small class="text-muted">Inspect proposed location for new tenant</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="client-info-mini">
+                                                <div class="client-avatar-mini">PS</div>
+                                                <span>Premium Sports</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-info">Inspection</span></td>
+                                        <td><span class="priority-indicator medium">Medium</span></td>
+                                        <td><span class="status-badge todo">To Do</span></td>
+                                        <td>
+                                            <span class="due-date">July 25, 2025</span>
+                                            <small class="text-muted d-block">In 2 days</small>
+                                        </td>
+                                        <td>
+                                            <div class="assignee-info">
+                                                <div class="assignee-avatar-mini">SM</div>
+                                                <span>Sales Manager</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-success" title="Mark Complete">
+                                                    <i class="bi bi-check"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#taskDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Task">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bulk Actions -->
+                    <div class="bulk-actions mt-3" style="display: none;">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="selected-count">0 tasks selected</span>
+                            <button class="btn btn-sm btn-success">
+                                <i class="bi bi-check-all"></i> Mark Complete
+                            </button>
+                            <button class="btn btn-sm btn-warning">
+                                <i class="bi bi-arrow-right"></i> Update Status
+                            </button>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Tasks table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTaskModalLabel">Add New Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="taskTitle" class="form-label required">Task Title</label>
+                                <input type="text" class="form-control" id="taskTitle" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="taskDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="taskDescription" rows="3" placeholder="Task description and details..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskType" class="form-label required">Task Type</label>
+                                <select class="form-select" id="taskType" required>
+                                    <option value="">Select Task Type</option>
+                                    <option value="meeting">Meeting</option>
+                                    <option value="call">Phone Call</option>
+                                    <option value="email">Email</option>
+                                    <option value="follow-up">Follow-up</option>
+                                    <option value="inspection">Inspection</option>
+                                    <option value="documentation">Documentation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskClient" class="form-label">Related Client</label>
+                                <select class="form-select" id="taskClient">
+                                    <option value="">Select Client</option>
+                                    <option value="zara">Zara Fashion</option>
+                                    <option value="mcdonalds">McDonald's</option>
+                                    <option value="apple">Apple Store</option>
+                                    <option value="premium-sports">Premium Sports</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskPriority" class="form-label">Priority</label>
+                                <select class="form-select" id="taskPriority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskStatus" class="form-label">Status</label>
+                                <select class="form-select" id="taskStatus">
+                                    <option value="todo" selected>To Do</option>
+                                    <option value="progress">In Progress</option>
+                                    <option value="review">In Review</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskDueDate" class="form-label">Due Date</label>
+                                <input type="date" class="form-control" id="taskDueDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskDueTime" class="form-label">Due Time</label>
+                                <input type="time" class="form-control" id="taskDueTime">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskAssignee" class="form-label">Assignee</label>
+                                <select class="form-select" id="taskAssignee">
+                                    <option value="andrew" selected>Andrew Starlin</option>
+                                    <option value="sales">Sales Manager</option>
+                                    <option value="leasing">Leasing Team</option>
+                                    <option value="maintenance">Maintenance Team</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="taskLocation" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="taskLocation" placeholder="e.g., Conference Room A, Client Office">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="taskReminder">
+                                    <label class="form-check-label" for="taskReminder">
+                                        Set reminder notification
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Create Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Details Modal -->
+    <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskDetailsModalLabel">Task Details - Contract Negotiation Meeting</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="task-details-content">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#taskOverview" type="button">Overview</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#taskComments" type="button">Comments</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#taskHistory" type="button">History</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="taskOverview">
+                                        <div class="task-overview">
+                                            <h6>Task Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Task Title:</strong> Contract Negotiation Meeting
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Task Type:</strong> Meeting
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Related Client:</strong> Zara Fashion
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Priority:</strong> High
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Status:</strong> In Progress
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Due Date:</strong> July 23, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Assignee:</strong> Andrew Starlin
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Location:</strong> Conference Room A
+                                                </div>
+                                            </div>
+
+                                            <h6>Description</h6>
+                                            <div class="task-description">
+                                                <p>Meet with Zara Fashion's Regional Manager Sarah Martinez to discuss lease renewal terms. Key points to cover:</p>
+                                                <ul>
+                                                    <li>Proposed rental increase from ₹3,25,000 to ₹3,90,000</li>
+                                                    <li>Lease duration negotiation (3 years vs 2.5 years)</li>
+                                                    <li>Annual increment rate discussion</li>
+                                                    <li>Additional clauses and modifications</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="taskComments">
+                                        <div class="comments-section">
+                                            <div class="comment-item">
+                                                <div class="comment-avatar">AS</div>
+                                                <div class="comment-content">
+                                                    <div class="comment-header">
+                                                        <strong>Andrew Starlin</strong>
+                                                        <span class="comment-time">2 hours ago</span>
+                                                    </div>
+                                                    <p>Prepared all necessary documents for the meeting. Client has agreed to the time slot.</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="comment-item">
+                                                <div class="comment-avatar">SM</div>
+                                                <div class="comment-content">
+                                                    <div class="comment-header">
+                                                        <strong>Sales Manager</strong>
+                                                        <span class="comment-time">4 hours ago</span>
+                                                    </div>
+                                                    <p>Conference Room A has been booked for the meeting. AV equipment is ready.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="add-comment">
+                                                <textarea class="form-control" rows="3" placeholder="Add a comment..."></textarea>
+                                                <button class="btn btn-primary btn-sm mt-2">Add Comment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="taskHistory">
+                                        <div class="task-history-timeline">
+                                            <div class="history-item">
+                                                <div class="history-marker created"></div>
+                                                <div class="history-content">
+                                                    <div class="history-header">
+                                                        <strong>Task Created</strong>
+                                                        <span class="history-date">July 20, 2025</span>
+                                                    </div>
+                                                    <p>Task created by Andrew Starlin for Zara Fashion lease negotiation</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="history-item">
+                                                <div class="history-marker updated"></div>
+                                                <div class="history-content">
+                                                    <div class="history-header">
+                                                        <strong>Priority Updated</strong>
+                                                        <span class="history-date">July 21, 2025</span>
+                                                    </div>
+                                                    <p>Priority changed from Medium to High</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="history-item">
+                                                <div class="history-marker updated"></div>
+                                                <div class="history-content">
+                                                    <div class="history-header">
+                                                        <strong>Status Updated</strong>
+                                                        <span class="history-date">July 22, 2025</span>
+                                                    </div>
+                                                    <p>Status changed from To Do to In Progress</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="task-sidebar">
+                                <div class="task-progress-info">
+                                    <h6>Task Progress</h6>
+                                    <div class="progress-circle">
+                                        <div class="circle-progress" data-progress="60">
+                                            <span class="progress-value">60%</span>
+                                        </div>
+                                        <p>In Progress</p>
+                                    </div>
+                                    <div class="progress-details">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Created:</span>
+                                            <span class="detail-value">3 days ago</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Due:</span>
+                                            <span class="detail-value">Today</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Time Left:</span>
+                                            <span class="detail-value text-warning">6 hours</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-actions-panel">
+                                    <h6>Quick Actions</h6>
+                                    <div class="action-buttons-grid">
+                                        <button class="btn btn-success w-100 mb-2">
+                                            <i class="bi bi-check"></i> Mark Complete
+                                        </button>
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-clock"></i> Extend Due Date
+                                        </button>
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-share"></i> Assign to Someone
+                                        </button>
+                                        <button class="btn btn-info w-100">
+                                            <i class="bi bi-file-text"></i> Add to Calendar
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="related-info">
+                                    <h6>Related Information</h6>
+                                    <div class="related-item">
+                                        <div class="related-icon">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+                                        <div class="related-content">
+                                            <strong>Zara Fashion</strong>
+                                            <small>Ground Floor - G-12</small>
+                                        </div>
+                                    </div>
+                                    <div class="related-item">
+                                        <div class="related-icon">
+                                            <i class="bi bi-currency-dollar"></i>
+                                        </div>
+                                        <div class="related-content">
+                                            <strong>Deal Value</strong>
+                                            <small>₹39,00,000/month</small>
+                                        </div>
+                                    </div>
+                                    <div class="related-item">
+                                        <div class="related-icon">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                        <div class="related-content">
+                                            <strong>Contact Person</strong>
+                                            <small>Sarah Martinez</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarModalLabel">Calendar View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="calendar-controls mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="calendar-nav">
+                                <button class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <span class="calendar-month">July 2025</span>
+                                <button class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-view-options">
+                                <div class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="calendarView" id="monthView" checked>
+                                    <label class="btn btn-outline-primary btn-sm" for="monthView">Month</label>
+                                    
+                                    <input type="radio" class="btn-check" name="calendarView" id="weekView">
+                                    <label class="btn btn-outline-primary btn-sm" for="weekView">Week</label>
+                                    
+                                    <input type="radio" class="btn-check" name="calendarView" id="dayView">
+                                    <label class="btn btn-outline-primary btn-sm" for="dayView">Day</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-placeholder">
+                        <div class="calendar-grid">
+                            <div class="text-center p-5">
+                                <i class="bi bi-calendar3 text-muted" style="font-size: 4rem;"></i>
+                                <p class="text-muted mt-3">Calendar integration would display here</p>
+                                <p class="small text-muted">Tasks and activities would be shown by date with color coding by priority</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Add Event</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Task Management Scripts -->
+    <script>
+        // Bulk selection functionality
+        document.getElementById('selectAll').addEventListener('change', function(e) {
+            const checkboxes = document.querySelectorAll('.tasks-table tbody input[type="checkbox"]');
+            const bulkActions = document.querySelector('.bulk-actions');
+            const selectedCount = document.querySelector('.selected-count');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = e.target.checked;
+            });
+            
+            if (e.target.checked) {
+                bulkActions.style.display = 'block';
+                selectedCount.textContent = `${checkboxes.length} tasks selected`;
+            } else {
+                bulkActions.style.display = 'none';
+            }
+        });
+
+        // Individual checkbox selection
+        document.querySelectorAll('.tasks-table tbody input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const selectedCheckboxes = document.querySelectorAll('.tasks-table tbody input[type="checkbox"]:checked');
+                const bulkActions = document.querySelector('.bulk-actions');
+                const selectedCount = document.querySelector('.selected-count');
+                
+                if (selectedCheckboxes.length > 0) {
+                    bulkActions.style.display = 'block';
+                    selectedCount.textContent = `${selectedCheckboxes.length} tasks selected`;
+                } else {
+                    bulkActions.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customer Management - Mall CRM Dashboard for managing store owner and tenant relationships">
+    <meta name="robots" content="index, follow">
+    <title>Customer Management | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search customers, tenants, companies..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="deals_opportunities.html">
+        <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="tasks_activities.html">
+        <i class="bi bi-check2-square"></i> Tasks & Activities
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="marketing.html">
+        <i class="bi bi-megaphone"></i> Marketing
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="support_service.html">
+        <i class="bi bi-headset"></i> Support & Service
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="products_services.html">
+        <i class="bi bi-box-seam"></i> Products & Services
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="documents.html">
+        <i class="bi bi-file-text"></i> Documents
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Customer Management</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Customer Management</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#importCustomersModal">
+                            <i class="bi bi-upload"></i> Import Customers
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
+                            <i class="bi bi-plus-lg"></i> Add New Customer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Statistics Overview -->
+                <section class="customer-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card customer-stat">
+                                <div class="stat-header">
+                                    <h3>Total Customers</h3>
+                                    <i class="bi bi-people text-primary"></i>
+                                </div>
+                                <div class="stat-value">156</div>
+                                <div class="stat-change positive">+8 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card customer-stat">
+                                <div class="stat-header">
+                                    <h3>Active Tenants</h3>
+                                    <i class="bi bi-shop text-success"></i>
+                                </div>
+                                <div class="stat-value">142</div>
+                                <div class="stat-change positive">91% Active</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card customer-stat">
+                                <div class="stat-header">
+                                    <h3>Lease Renewals</h3>
+                                    <i class="bi bi-arrow-repeat text-warning"></i>
+                                </div>
+                                <div class="stat-value">23</div>
+                                <div class="stat-change positive">This Quarter</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card customer-stat">
+                                <div class="stat-header">
+                                    <h3>Avg Tenant Value</h3>
+                                    <i class="bi bi-currency-rupee text-info"></i>
+                                </div>
+                                <div class="stat-value">₹3.2L</div>
+                                <div class="stat-change positive">Monthly Revenue</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Customer Lifecycle Journey -->
+                <section class="customer-lifecycle mb-4">
+                    <div class="lifecycle-header">
+                        <h3>Customer Journey Overview</h3>
+                        <p class="text-muted">Track customers through different lifecycle stages</p>
+                    </div>
+                    <div class="lifecycle-container">
+                        <div class="lifecycle-stage">
+                            <div class="stage-icon">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                            <div class="stage-info">
+                                <h5>New Customers</h5>
+                                <span class="stage-count">28</span>
+                                <p>Recently onboarded</p>
+                            </div>
+                        </div>
+                        <div class="lifecycle-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="lifecycle-stage">
+                            <div class="stage-icon active">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <div class="stage-info">
+                                <h5>Active Tenants</h5>
+                                <span class="stage-count">142</span>
+                                <p>Operating stores</p>
+                            </div>
+                        </div>
+                        <div class="lifecycle-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="lifecycle-stage">
+                            <div class="stage-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <div class="stage-info">
+                                <h5>Premium Partners</h5>
+                                <span class="stage-count">35</span>
+                                <p>Long-term high-value</p>
+                            </div>
+                        </div>
+                        <div class="lifecycle-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="lifecycle-stage">
+                            <div class="stage-icon renewal">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div class="stage-info">
+                                <h5>Up for Renewal</h5>
+                                <span class="stage-count">12</span>
+                                <p>Next 30 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Customer Segmentation -->
+                <section class="customer-segments mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="segment-cards-container">
+                                <h4>Customer Segments</h4>
+                                <div class="segment-cards">
+                                    <div class="segment-card fashion">
+                                        <div class="segment-icon">
+                                            <i class="bi bi-bag"></i>
+                                        </div>
+                                        <div class="segment-details">
+                                            <h5>Fashion & Retail</h5>
+                                            <div class="segment-stats">
+                                                <span class="customer-count">45 Customers</span>
+                                                <span class="revenue-contribution">35% Revenue</span>
+                                            </div>
+                                            <div class="segment-growth positive">+12% Growth</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="segment-card food">
+                                        <div class="segment-icon">
+                                            <i class="bi bi-cup-straw"></i>
+                                        </div>
+                                        <div class="segment-details">
+                                            <h5>Food & Beverage</h5>
+                                            <div class="segment-stats">
+                                                <span class="customer-count">32 Customers</span>
+                                                <span class="revenue-contribution">28% Revenue</span>
+                                            </div>
+                                            <div class="segment-growth positive">+8% Growth</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="segment-card electronics">
+                                        <div class="segment-icon">
+                                            <i class="bi bi-phone"></i>
+                                        </div>
+                                        <div class="segment-details">
+                                            <h5>Electronics</h5>
+                                            <div class="segment-stats">
+                                                <span class="customer-count">28 Customers</span>
+                                                <span class="revenue-contribution">22% Revenue</span>
+                                            </div>
+                                            <div class="segment-growth positive">+15% Growth</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="segment-card services">
+                                        <div class="segment-icon">
+                                            <i class="bi bi-tools"></i>
+                                        </div>
+                                        <div class="segment-details">
+                                            <h5>Services & Others</h5>
+                                            <div class="segment-stats">
+                                                <span class="customer-count">51 Customers</span>
+                                                <span class="revenue-contribution">15% Revenue</span>
+                                            </div>
+                                            <div class="segment-growth neutral">+2% Growth</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="customer-health-score">
+                                <h4>Customer Health Score</h4>
+                                <div class="health-metrics">
+                                    <div class="health-item">
+                                        <div class="health-icon healthy">
+                                            <i class="bi bi-heart-fill"></i>
+                                        </div>
+                                        <div class="health-details">
+                                            <span class="health-label">Healthy Relationships</span>
+                                            <span class="health-count">128 customers</span>
+                                            <span class="health-percentage">82%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="health-item warning">
+                                        <div class="health-icon warning">
+                                            <i class="bi bi-exclamation-triangle-fill"></i>
+                                        </div>
+                                        <div class="health-details">
+                                            <span class="health-label">At Risk</span>
+                                            <span class="health-count">18 customers</span>
+                                            <span class="health-percentage">12%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="health-item critical">
+                                        <div class="health-icon critical">
+                                            <i class="bi bi-x-circle-fill"></i>
+                                        </div>
+                                        <div class="health-details">
+                                            <span class="health-label">Critical</span>
+                                            <span class="health-count">10 customers</span>
+                                            <span class="health-percentage">6%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Customer Filters -->
+                <section class="customer-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="customer-search" class="form-label">Search Customers</label>
+                            <input type="search" class="form-control" id="customer-search" placeholder="Search by company, contact, email..." aria-label="Search customers">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="customer-status" class="form-label">Status</label>
+                            <select class="form-select" id="customer-status">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="renewal">Up for Renewal</option>
+                                <option value="churned">Churned</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="customer-type" class="form-label">Customer Type</label>
+                            <select class="form-select" id="customer-type">
+                                <option value="">All Types</option>
+                                <option value="new">New Customer</option>
+                                <option value="existing">Existing</option>
+                                <option value="premium">Premium Partner</option>
+                                <option value="vip">VIP</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="business-category" class="form-label">Category</label>
+                            <select class="form-select" id="business-category">
+                                <option value="">All Categories</option>
+                                <option value="fashion">Fashion & Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="services">Services</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Customer List Table -->
+                <section class="customers-table-section">
+                    <div class="section-header mb-3">
+                        <h2>Customer Directory</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="customerView" id="tableViewCustomers" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="tableViewCustomers">
+                                    <i class="bi bi-list"></i> Table
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="customerView" id="cardViewCustomers">
+                                <label class="btn btn-outline-primary btn-sm" for="cardViewCustomers">
+                                    <i class="bi bi-grid-3x3"></i> Cards
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table customers-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Company">
+                                                Company <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Primary Contact</th>
+                                        <th scope="col">Business Category</th>
+                                        <th scope="col">Store Location</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Monthly Revenue">
+                                                Monthly Rent <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Lease Status</th>
+                                        <th scope="col">Health Score</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Last Activity">
+                                                Last Activity <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="customer-avatar">ZA</div>
+                                                <div>
+                                                    <strong>Zara Fashion</strong>
+                                                    <small class="text-muted d-block">Premium Fashion Brand</small>
+                                                    <div class="customer-tags">
+                                                        <span class="tag premium">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="contact-info">
+                                                <strong>Sarah Martinez</strong>
+                                                <small class="text-muted d-block">Regional Manager</small>
+                                                <small class="text-muted">sarah@zara.com</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">Fashion & Retail</span></td>
+                                        <td>Ground Floor - G-12</td>
+                                        <td>₹3,25,000</td>
+                                        <td>
+                                            <div class="lease-status">
+                                                <span class="lease-date">Dec 2025</span>
+                                                <small class="text-success d-block">18 months left</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="health-score-mini healthy">
+                                                <span class="score">95</span>
+                                                <small>Excellent</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="last-activity">2 days ago</span>
+                                            <small class="text-muted d-block">Rent payment</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Customer Details" data-bs-toggle="modal" data-bs-target="#customerDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Customer">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Communication History">
+                                                    <i class="bi bi-chat-dots"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="customer-avatar">MC</div>
+                                                <div>
+                                                    <strong>McDonald's</strong>
+                                                    <small class="text-muted d-block">Fast Food Chain</small>
+                                                    <div class="customer-tags">
+                                                        <span class="tag renewal">Renewal Due</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="contact-info">
+                                                <strong>John Thompson</strong>
+                                                <small class="text-muted d-block">Store Manager</small>
+                                                <small class="text-muted">john@mcdonalds.com</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">Food & Beverage</span></td>
+                                        <td>First Floor - F-08</td>
+                                        <td>₹2,80,000</td>
+                                        <td>
+                                            <div class="lease-status">
+                                                <span class="lease-date warning">Mar 2025</span>
+                                                <small class="text-warning d-block">3 months left</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="health-score-mini warning">
+                                                <span class="score">68</span>
+                                                <small>At Risk</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="last-activity">1 week ago</span>
+                                            <small class="text-muted d-block">Support ticket</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Customer Details" data-bs-toggle="modal" data-bs-target="#customerDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Customer">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Communication History">
+                                                    <i class="bi bi-chat-dots"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="customer-avatar">AP</div>
+                                                <div>
+                                                    <strong>Apple Store</strong>
+                                                    <small class="text-muted d-block">Electronics & Technology</small>
+                                                    <div class="customer-tags">
+                                                        <span class="tag vip">VIP</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="contact-info">
+                                                <strong>Lisa Chen</strong>
+                                                <small class="text-muted d-block">Store Lead</small>
+                                                <small class="text-muted">lisa@apple.com</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-info">Electronics</span></td>
+                                        <td>Second Floor - S-05</td>
+                                        <td>₹4,50,000</td>
+                                        <td>
+                                            <div class="lease-status">
+                                                <span class="lease-date">Sep 2026</span>
+                                                <small class="text-success d-block">26 months left</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="health-score-mini healthy">
+                                                <span class="score">98</span>
+                                                <small>Excellent</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="last-activity">3 days ago</span>
+                                            <small class="text-muted d-block">Monthly review</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Customer Details" data-bs-toggle="modal" data-bs-target="#customerDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Customer">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Communication History">
+                                                    <i class="bi bi-chat-dots"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Customers table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCustomerModalLabel">Add New Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="customerCompanyName" class="form-label required">Company Name</label>
+                                <input type="text" class="form-control" id="customerCompanyName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerContactPerson" class="form-label required">Primary Contact</label>
+                                <input type="text" class="form-control" id="customerContactPerson" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerEmail" class="form-label required">Email</label>
+                                <input type="email" class="form-control" id="customerEmail" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerPhone" class="form-label required">Phone</label>
+                                <input type="tel" class="form-control" id="customerPhone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerBusinessCategory" class="form-label required">Business Category</label>
+                                <select class="form-select" id="customerBusinessCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="fashion">Fashion & Retail</option>
+                                    <option value="food">Food & Beverage</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="lifestyle">Lifestyle & Beauty</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="services">Services</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerType" class="form-label">Customer Type</label>
+                                <select class="form-select" id="customerType">
+                                    <option value="new" selected>New Customer</option>
+                                    <option value="existing">Existing</option>
+                                    <option value="premium">Premium Partner</option>
+                                    <option value="vip">VIP</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeLocation" class="form-label">Store Location</label>
+                                <input type="text" class="form-control" id="storeLocation" placeholder="e.g., Ground Floor - G-15">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="monthlyRent" class="form-label">Monthly Rent (₹)</label>
+                                <input type="number" class="form-control" id="monthlyRent">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="leaseStartDate" class="form-label">Lease Start Date</label>
+                                <input type="date" class="form-control" id="leaseStartDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="leaseEndDate" class="form-label">Lease End Date</label>
+                                <input type="date" class="form-control" id="leaseEndDate">
+                            </div>
+                            <div class="col-12">
+                                <label for="customerNotes" class="form-label">Notes</label>
+                                <textarea class="form-control" id="customerNotes" rows="3" placeholder="Additional notes about this customer..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Customer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Details Modal -->
+    <div class="modal fade" id="customerDetailsModal" tabindex="-1" aria-labelledby="customerDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customerDetailsModalLabel">Customer Details - Zara Fashion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="customer-details-tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#customerOverview" type="button">Overview</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#communicationHistory" type="button">Communications</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#billingHistory" type="button">Billing</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#customerDocuments" type="button">Documents</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="customerOverview">
+                                        <div class="customer-overview">
+                                            <h6>Company Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Company:</strong> Zara Fashion
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Business Category:</strong> Fashion & Retail
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Customer Since:</strong> Jan 2023
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Customer Type:</strong> Premium Partner
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Website:</strong> www.zara.com
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Industry:</strong> Fashion Retail
+                                                </div>
+                                            </div>
+
+                                            <h6>Store & Lease Details</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <strong>Store Location:</strong> Ground Floor - G-12
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Store Size:</strong> 2,500 sq ft
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Monthly Rent:</strong> ₹3,25,000
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Lease Period:</strong> 3 Years
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Lease Start:</strong> Jan 15, 2023
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Lease End:</strong> Jan 15, 2026
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="communicationHistory">
+                                        <div class="communication-timeline">
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker email"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>Email - Monthly Newsletter</strong>
+                                                        <span class="timeline-date">2 days ago</span>
+                                                    </div>
+                                                    <p>Monthly mall newsletter sent with updates about new promotions and events.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-success">Delivered</span>
+                                                        <span class="badge bg-info">Opened</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker phone"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>Phone Call - Lease Renewal Discussion</strong>
+                                                        <span class="timeline-date">1 week ago</span>
+                                                    </div>
+                                                    <p>Discussed upcoming lease renewal terms and conditions. Customer expressed interest in extending for another 3 years.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-primary">Follow-up Scheduled</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker meeting"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>In-Person Meeting - Quarterly Review</strong>
+                                                        <span class="timeline-date">3 weeks ago</span>
+                                                    </div>
+                                                    <p>Quarterly business review meeting. Discussed performance metrics, customer satisfaction, and upcoming promotions.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-success">Completed</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="billingHistory">
+                                        <div class="billing-table-container">
+                                            <table class="table billing-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Description</th>
+                                                        <th>Amount</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Dec 2024</td>
+                                                        <td>Monthly Rent - December</td>
+                                                        <td>₹3,25,000</td>
+                                                        <td><span class="badge bg-success">Paid</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-primary">View Invoice</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 2024</td>
+                                                        <td>Monthly Rent - November</td>
+                                                        <td>₹3,25,000</td>
+                                                        <td><span class="badge bg-success">Paid</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-primary">View Invoice</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 2024</td>
+                                                        <td>Monthly Rent - October + Maintenance</td>
+                                                        <td>₹3,45,000</td>
+                                                        <td><span class="badge bg-success">Paid</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-primary">View Invoice</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="customerDocuments">
+                                        <div class="documents-grid">
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-pdf"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Lease Agreement.pdf</strong>
+                                                    <small class="text-muted">Updated: Jan 15, 2023</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-text"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Business Registration.docx</strong>
+                                                    <small class="text-muted">Updated: Jan 10, 2023</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-image"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Store Layout Plan.jpg</strong>
+                                                    <small class="text-muted">Updated: Dec 20, 2024</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="customer-sidebar">
+                                <div class="contact-card">
+                                    <h6>Primary Contact</h6>
+                                    <div class="contact-avatar">SM</div>
+                                    <div class="contact-details">
+                                        <strong>Sarah Martinez</strong>
+                                        <p>Regional Manager</p>
+                                        <p><i class="bi bi-envelope"></i> sarah@zara.com</p>
+                                        <p><i class="bi bi-phone"></i> +91 9876543210</p>
+                                        <p><i class="bi bi-linkedin"></i> sarah-martinez</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="customer-health-card">
+                                    <h6>Customer Health</h6>
+                                    <div class="health-score-display">
+                                        <div class="health-circle healthy">
+                                            <span class="health-number">95</span>
+                                        </div>
+                                        <div class="health-label">Excellent Health</div>
+                                    </div>
+                                    <div class="health-factors">
+                                        <div class="factor-item">
+                                            <span class="factor-label">Payment History</span>
+                                            <span class="factor-score positive">100%</span>
+                                        </div>
+                                        <div class="factor-item">
+                                            <span class="factor-label">Engagement</span>
+                                            <span class="factor-score positive">90%</span>
+                                        </div>
+                                        <div class="factor-item">
+                                            <span class="factor-label">Satisfaction</span>
+                                            <span class="factor-score positive">95%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="quick-actions-card">
+                                    <h6>Quick Actions</h6>
+                                    <div class="action-buttons-vertical">
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-envelope"></i> Send Email
+                                        </button>
+                                        <button class="btn btn-success w-100 mb-2">
+                                            <i class="bi bi-telephone"></i> Schedule Call
+                                        </button>
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-calendar-event"></i> Book Meeting
+                                        </button>
+                                        <button class="btn btn-info w-100">
+                                            <i class="bi bi-file-text"></i> Generate Report
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Customers Modal -->
+    <div class="modal fade" id="importCustomersModal" tabindex="-1" aria-labelledby="importCustomersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importCustomersModalLabel">Import Customers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="import-area">
+                        <div class="file-upload-area">
+                            <i class="bi bi-cloud-upload"></i>
+                            <p>Drag and drop your CSV file here, or <a href="#" class="text-primary">browse</a></p>
+                            <input type="file" class="form-control" accept=".csv" style="display: none;">
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                Supported format: CSV with columns - Company, Contact Person, Email, Phone, Business Category, Monthly Rent
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Download Template</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Import Customers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

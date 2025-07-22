@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marketing - Mall CRM Dashboard for managing campaigns, promotions, and marketing activities">
+    <meta name="robots" content="index, follow">
+    <title>Marketing | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search campaigns, promotions, events..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals_opportunities.html">
+                            <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks_activities.html">
+                            <i class="bi bi-check2-square"></i> Tasks & Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="marketing.html">
+                            <i class="bi bi-megaphone"></i> Marketing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="support_service.html">
+        <i class="bi bi-headset"></i> Support & Service
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="products_services.html">
+        <i class="bi bi-box-seam"></i> Products & Services
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="documents.html">
+        <i class="bi bi-file-text"></i> Documents
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Marketing</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Marketing Dashboard</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#campaignAnalyticsModal">
+                            <i class="bi bi-graph-up"></i> Campaign Analytics
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCampaignModal">
+                            <i class="bi bi-plus-lg"></i> Create Campaign
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Marketing Statistics Overview -->
+                <section class="marketing-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card marketing-stat">
+                                <div class="stat-header">
+                                    <h3>Active Campaigns</h3>
+                                    <i class="bi bi-broadcast text-primary"></i>
+                                </div>
+                                <div class="stat-value">12</div>
+                                <div class="stat-change positive">+3 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card marketing-stat">
+                                <div class="stat-header">
+                                    <h3>Total Reach</h3>
+                                    <i class="bi bi-people text-success"></i>
+                                </div>
+                                <div class="stat-value">2.4M</div>
+                                <div class="stat-change positive">+18% This Week</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card marketing-stat">
+                                <div class="stat-header">
+                                    <h3>Engagement Rate</h3>
+                                    <i class="bi bi-heart text-danger"></i>
+                                </div>
+                                <div class="stat-value">8.7%</div>
+                                <div class="stat-change positive">+2.1% vs Last Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card marketing-stat">
+                                <div class="stat-header">
+                                    <h3>Marketing ROI</h3>
+                                    <i class="bi bi-graph-up-arrow text-warning"></i>
+                                </div>
+                                <div class="stat-value">4.2x</div>
+                                <div class="stat-change positive">Above Target</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Current Campaigns -->
+                <section class="current-campaigns mb-4">
+                    <div class="campaigns-header">
+                        <h3>Current Campaigns</h3>
+                        <p class="text-muted">Active marketing campaigns and their performance</p>
+                    </div>
+                    <div class="campaigns-grid">
+                        <div class="campaign-card active">
+                            <div class="campaign-status">
+                                <span class="status-dot active"></span>
+                                <span class="status-text">Active</span>
+                            </div>
+                            <div class="campaign-image">
+                                <div class="image-placeholder">
+                                    <i class="bi bi-image"></i>
+                                    <span>Summer Sale 2025</span>
+                                </div>
+                            </div>
+                            <div class="campaign-content">
+                                <div class="campaign-header">
+                                    <h5>Summer Fashion Festival</h5>
+                                    <span class="campaign-type">Seasonal</span>
+                                </div>
+                                <div class="campaign-description">
+                                    Mall-wide summer fashion promotion featuring 30+ fashion brands with up to 70% discounts.
+                                </div>
+                                <div class="campaign-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Reach</span>
+                                        <span class="metric-value">487K</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Engagement</span>
+                                        <span class="metric-value">12.3%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">ROI</span>
+                                        <span class="metric-value">5.2x</span>
+                                    </div>
+                                </div>
+                                <div class="campaign-progress">
+                                    <div class="progress-info">
+                                        <span>Campaign Progress</span>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="campaign-dates">
+                                    <div class="date-item">
+                                        <i class="bi bi-calendar-event"></i>
+                                        <span>Jun 15 - Aug 31, 2025</span>
+                                    </div>
+                                    <div class="date-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>46 days remaining</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Edit Campaign">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Analytics">
+                                    <i class="bi bi-graph-up"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="campaign-card scheduled">
+                            <div class="campaign-status">
+                                <span class="status-dot scheduled"></span>
+                                <span class="status-text">Scheduled</span>
+                            </div>
+                            <div class="campaign-image">
+                                <div class="image-placeholder">
+                                    <i class="bi bi-image"></i>
+                                    <span>Diwali Festival</span>
+                                </div>
+                            </div>
+                            <div class="campaign-content">
+                                <div class="campaign-header">
+                                    <h5>Diwali Grand Celebration</h5>
+                                    <span class="campaign-type">Festival</span>
+                                </div>
+                                <div class="campaign-description">
+                                    Traditional Diwali festivities with cultural events, special discounts, and decorations.
+                                </div>
+                                <div class="campaign-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Projected Reach</span>
+                                        <span class="metric-value">650K</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Budget</span>
+                                        <span class="metric-value">₹8.5L</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Expected ROI</span>
+                                        <span class="metric-value">6.8x</span>
+                                    </div>
+                                </div>
+                                <div class="campaign-progress">
+                                    <div class="progress-info">
+                                        <span>Preparation</span>
+                                        <span>25%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div class="campaign-dates">
+                                    <div class="date-item">
+                                        <i class="bi bi-calendar-event"></i>
+                                        <span>Oct 15 - Nov 5, 2025</span>
+                                    </div>
+                                    <div class="date-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>Starts in 84 days</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Edit Campaign">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-success" title="Launch Early">
+                                    <i class="bi bi-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="campaign-card completed">
+                            <div class="campaign-status">
+                                <span class="status-dot completed"></span>
+                                <span class="status-text">Completed</span>
+                            </div>
+                            <div class="campaign-image">
+                                <div class="image-placeholder">
+                                    <i class="bi bi-image"></i>
+                                    <span>Mother's Day</span>
+                                </div>
+                            </div>
+                            <div class="campaign-content">
+                                <div class="campaign-header">
+                                    <h5>Mother's Day Special</h5>
+                                    <span class="campaign-type">Special Event</span>
+                                </div>
+                                <div class="campaign-description">
+                                    Mother's Day celebration with special offers for beauty, fashion, and lifestyle brands.
+                                </div>
+                                <div class="campaign-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Final Reach</span>
+                                        <span class="metric-value">320K</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Engagement</span>
+                                        <span class="metric-value">15.7%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Achieved ROI</span>
+                                        <span class="metric-value">4.8x</span>
+                                    </div>
+                                </div>
+                                <div class="campaign-progress">
+                                    <div class="progress-info">
+                                        <span>Completed</span>
+                                        <span>100%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="campaign-dates">
+                                    <div class="date-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>May 5 - May 14, 2025</span>
+                                    </div>
+                                    <div class="date-item success">
+                                        <i class="bi bi-check-circle"></i>
+                                        <span>Completed Successfully</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn btn-sm btn-outline-primary" title="View Report" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                    <i class="bi bi-file-text"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Analytics">
+                                    <i class="bi bi-graph-up"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Clone Campaign">
+                                    <i class="bi bi-files"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Marketing Channels & Performance -->
+                <section class="marketing-channels mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="channels-performance">
+                                <h4>Channel Performance</h4>
+                                <div class="channels-grid">
+                                    <div class="channel-card social">
+                                        <div class="channel-icon">
+                                            <i class="bi bi-share"></i>
+                                        </div>
+                                        <div class="channel-details">
+                                            <h5>Social Media</h5>
+                                            <div class="channel-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Reach</span>
+                                                    <span class="stat-value">1.8M</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Engagement</span>
+                                                    <span class="stat-value">12.4%</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Conversion</span>
+                                                    <span class="stat-value">3.2%</span>
+                                                </div>
+                                            </div>
+                                            <div class="channel-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-primary" style="width: 85%"></div>
+                                                </div>
+                                                <small>85% of target</small>
+                                            </div>
+                                        </div>
+                                        <div class="channel-trend positive">
+                                            <i class="bi bi-arrow-up"></i>
+                                            <span>+15%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-card email">
+                                        <div class="channel-icon">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                        <div class="channel-details">
+                                            <h5>Email Marketing</h5>
+                                            <div class="channel-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Subscribers</span>
+                                                    <span class="stat-value">85K</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Open Rate</span>
+                                                    <span class="stat-value">28.7%</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Click Rate</span>
+                                                    <span class="stat-value">4.8%</span>
+                                                </div>
+                                            </div>
+                                            <div class="channel-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success" style="width: 92%"></div>
+                                                </div>
+                                                <small>92% of target</small>
+                                            </div>
+                                        </div>
+                                        <div class="channel-trend positive">
+                                            <i class="bi bi-arrow-up"></i>
+                                            <span>+8%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-card digital">
+                                        <div class="channel-icon">
+                                            <i class="bi bi-tv"></i>
+                                        </div>
+                                        <div class="channel-details">
+                                            <h5>Digital Displays</h5>
+                                            <div class="channel-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Impressions</span>
+                                                    <span class="stat-value">2.1M</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Dwell Time</span>
+                                                    <span class="stat-value">8.5s</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Recall Rate</span>
+                                                    <span class="stat-value">67%</span>
+                                                </div>
+                                            </div>
+                                            <div class="channel-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-info" style="width: 78%"></div>
+                                                </div>
+                                                <small>78% of target</small>
+                                            </div>
+                                        </div>
+                                        <div class="channel-trend neutral">
+                                            <i class="bi bi-dash"></i>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-card events">
+                                        <div class="channel-icon">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                        <div class="channel-details">
+                                            <h5>Events & Activations</h5>
+                                            <div class="channel-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Attendees</span>
+                                                    <span class="stat-value">125K</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Participation</span>
+                                                    <span class="stat-value">78%</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Satisfaction</span>
+                                                    <span class="stat-value">4.6/5</span>
+                                                </div>
+                                            </div>
+                                            <div class="channel-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" style="width: 68%"></div>
+                                                </div>
+                                                <small>68% of target</small>
+                                            </div>
+                                        </div>
+                                        <div class="channel-trend positive">
+                                            <i class="bi bi-arrow-up"></i>
+                                            <span>+22%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="upcoming-events">
+                                <h4>Upcoming Marketing Events</h4>
+                                <div class="events-timeline">
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <div class="date-box">
+                                                <span class="day">25</span>
+                                                <span class="month">Jul</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-details">
+                                            <h6>Flash Sale Launch</h6>
+                                            <p>48-hour flash sale promotion</p>
+                                            <div class="event-meta">
+                                                <span class="badge bg-primary">Social Media</span>
+                                                <span class="badge bg-info">Email</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-actions">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <div class="date-box">
+                                                <span class="day">02</span>
+                                                <span class="month">Aug</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-details">
+                                            <h6>Back-to-School Campaign</h6>
+                                            <p>Student discounts and promotions</p>
+                                            <div class="event-meta">
+                                                <span class="badge bg-success">Multi-channel</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-actions">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <div class="date-box">
+                                                <span class="day">15</span>
+                                                <span class="month">Aug</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-details">
+                                            <h6>Independence Day Special</h6>
+                                            <p>Patriotic theme decorations & offers</p>
+                                            <div class="event-meta">
+                                                <span class="badge bg-warning">Events</span>
+                                                <span class="badge bg-danger">Digital</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-actions">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <div class="date-box">
+                                                <span class="day">31</span>
+                                                <span class="month">Aug</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-details">
+                                            <h6>End of Summer Sale</h6>
+                                            <p>Clearance sale before new season</p>
+                                            <div class="event-meta">
+                                                <span class="badge bg-secondary">Seasonal</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-actions">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Marketing Filters -->
+                <section class="marketing-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="campaign-search" class="form-label">Search Campaigns</label>
+                            <input type="search" class="form-control" id="campaign-search" placeholder="Search by campaign name, type, or description..." aria-label="Search campaigns">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="campaign-status" class="form-label">Status</label>
+                            <select class="form-select" id="campaign-status">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="scheduled">Scheduled</option>
+                                <option value="paused">Paused</option>
+                                <option value="completed">Completed</option>
+                                <option value="draft">Draft</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="campaign-type" class="form-label">Campaign Type</label>
+                            <select class="form-select" id="campaign-type">
+                                <option value="">All Types</option>
+                                <option value="seasonal">Seasonal</option>
+                                <option value="festival">Festival</option>
+                                <option value="promotion">Promotion</option>
+                                <option value="event">Special Event</option>
+                                <option value="brand">Brand Campaign</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="campaign-channel" class="form-label">Channel</label>
+                            <select class="form-select" id="campaign-channel">
+                                <option value="">All Channels</option>
+                                <option value="social">Social Media</option>
+                                <option value="email">Email Marketing</option>
+                                <option value="digital">Digital Display</option>
+                                <option value="events">Events</option>
+                                <option value="multichannel">Multi-channel</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Campaigns List Table -->
+                <section class="campaigns-table-section">
+                    <div class="section-header mb-3">
+                        <h2>All Marketing Campaigns</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="campaignsView" id="gridViewCampaigns" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="gridViewCampaigns">
+                                    <i class="bi bi-grid-3x3"></i> Grid View
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="campaignsView" id="listViewCampaigns">
+                                <label class="btn btn-outline-primary btn-sm" for="listViewCampaigns">
+                                    <i class="bi bi-list"></i> List View
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table campaigns-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Campaign Name">
+                                                Campaign <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Channel</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Budget">
+                                                Budget <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Reach</th>
+                                        <th scope="col">ROI</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by End Date">
+                                                End Date <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="campaign-info">
+                                                <div class="campaign-thumbnail">SF</div>
+                                                <div>
+                                                    <strong>Summer Fashion Festival</strong>
+                                                    <small class="text-muted d-block">Mall-wide summer promotion</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">Seasonal</span></td>
+                                        <td><span class="badge bg-info">Multi-channel</span></td>
+                                        <td><span class="status-indicator active">Active</span></td>
+                                        <td>
+                                            <div class="budget-info">
+                                                <strong>₹12.5L</strong>
+                                                <small class="text-muted d-block">₹8.2L spent</small>
+                                            </div>
+                                        </td>
+                                        <td>487K</td>
+                                        <td>
+                                            <div class="roi-indicator positive">
+                                                <span class="roi-value">5.2x</span>
+                                                <small class="roi-label">Excellent</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="end-date">Aug 31, 2025</span>
+                                            <small class="text-success d-block">46 days left</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Campaign">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Analytics">
+                                                    <i class="bi bi-graph-up"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="campaign-info">
+                                                <div class="campaign-thumbnail">DG</div>
+                                                <div>
+                                                    <strong>Diwali Grand Celebration</strong>
+                                                    <small class="text-muted d-block">Traditional festival campaign</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">Festival</span></td>
+                                        <td><span class="badge bg-success">Events</span></td>
+                                        <td><span class="status-indicator scheduled">Scheduled</span></td>
+                                        <td>
+                                            <div class="budget-info">
+                                                <strong>₹8.5L</strong>
+                                                <small class="text-muted d-block">₹2.1L allocated</small>
+                                            </div>
+                                        </td>
+                                        <td>650K (proj.)</td>
+                                        <td>
+                                            <div class="roi-indicator projected">
+                                                <span class="roi-value">6.8x</span>
+                                                <small class="roi-label">Projected</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="end-date">Nov 5, 2025</span>
+                                            <small class="text-info d-block">Starts in 84 days</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Campaign">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Launch Early">
+                                                    <i class="bi bi-play"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="campaign-info">
+                                                <div class="campaign-thumbnail">MD</div>
+                                                <div>
+                                                    <strong>Mother's Day Special</strong>
+                                                    <small class="text-muted d-block">Special occasion promotion</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-secondary">Special Event</span></td>
+                                        <td><span class="badge bg-primary">Social Media</span></td>
+                                        <td><span class="status-indicator completed">Completed</span></td>
+                                        <td>
+                                            <div class="budget-info">
+                                                <strong>₹4.2L</strong>
+                                                <small class="text-success d-block">₹4.0L spent</small>
+                                            </div>
+                                        </td>
+                                        <td>320K</td>
+                                        <td>
+                                            <div class="roi-indicator positive">
+                                                <span class="roi-value">4.8x</span>
+                                                <small class="roi-label">Good</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="end-date completed">May 14, 2025</span>
+                                            <small class="text-success d-block">Completed</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Report" data-bs-toggle="modal" data-bs-target="#campaignDetailsModal">
+                                                    <i class="bi bi-file-text"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Analytics">
+                                                    <i class="bi bi-graph-up"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Clone Campaign">
+                                                    <i class="bi bi-files"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Campaigns table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Campaign Modal -->
+    <div class="modal fade" id="addCampaignModal" tabindex="-1" aria-labelledby="addCampaignModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCampaignModalLabel">Create New Campaign</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label for="campaignName" class="form-label required">Campaign Name</label>
+                                <input type="text" class="form-control" id="campaignName" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="campaignType" class="form-label required">Type</label>
+                                <select class="form-select" id="campaignType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="seasonal">Seasonal</option>
+                                    <option value="festival">Festival</option>
+                                    <option value="promotion">Promotion</option>
+                                    <option value="event">Special Event</option>
+                                    <option value="brand">Brand Campaign</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="campaignDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="campaignDescription" rows="3" placeholder="Campaign description and objectives..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="campaignStartDate" class="form-label required">Start Date</label>
+                                <input type="date" class="form-control" id="campaignStartDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="campaignEndDate" class="form-label required">End Date</label>
+                                <input type="date" class="form-control" id="campaignEndDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="campaignBudget" class="form-label required">Budget (₹)</label>
+                                <input type="number" class="form-control" id="campaignBudget" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="campaignTargetReach" class="form-label">Target Reach</label>
+                                <input type="number" class="form-control" id="campaignTargetReach" placeholder="e.g., 500000">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="campaignChannels" class="form-label">Marketing Channels</label>
+                                <div class="row g-2">
+                                    <div class="col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="channelSocial">
+                                            <label class="form-check-label" for="channelSocial">Social Media</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="channelEmail">
+                                            <label class="form-check-label" for="channelEmail">Email Marketing</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="channelDigital">
+                                            <label class="form-check-label" for="channelDigital">Digital Display</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="channelEvents">
+                                            <label class="form-check-label" for="channelEvents">Events</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="campaignObjectives" class="form-label">Campaign Objectives</label>
+                                <textarea class="form-control" id="campaignObjectives" rows="2" placeholder="Key objectives and success metrics..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-primary">Save as Draft</button>
+                    <button type="button" class="btn btn-primary">Create Campaign</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Campaign Details Modal -->
+    <div class="modal fade" id="campaignDetailsModal" tabindex="-1" aria-labelledby="campaignDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="campaignDetailsModalLabel">Campaign Details - Summer Fashion Festival</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="campaign-details-tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#campaignOverview" type="button">Overview</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#campaignAnalytics" type="button">Analytics</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#campaignContent" type="button">Content</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#campaignBudget" type="button">Budget</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="campaignOverview">
+                                        <div class="campaign-overview">
+                                            <h6>Campaign Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Campaign Name:</strong> Summer Fashion Festival
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Campaign Type:</strong> Seasonal
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Status:</strong> Active
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Duration:</strong> 77 days
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Start Date:</strong> June 15, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>End Date:</strong> August 31, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Total Budget:</strong> ₹12,50,000
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Spent:</strong> ₹8,20,000 (66%)
+                                                </div>
+                                            </div>
+
+                                            <h6>Campaign Objectives</h6>
+                                            <div class="objectives-list">
+                                                <ul>
+                                                    <li>Increase mall footfall by 25% during summer months</li>
+                                                    <li>Drive sales for fashion and lifestyle brands</li>
+                                                    <li>Enhance brand awareness and customer engagement</li>
+                                                    <li>Promote new season collections from partner brands</li>
+                                                </ul>
+                                            </div>
+
+                                            <h6>Participating Brands</h6>
+                                            <div class="participating-brands">
+                                                <div class="brand-grid">
+                                                    <div class="brand-item">
+                                                        <div class="brand-logo">ZA</div>
+                                                        <span>Zara</span>
+                                                    </div>
+                                                    <div class="brand-item">
+                                                        <div class="brand-logo">HM</div>
+                                                        <span>H&M</span>
+                                                    </div>
+                                                    <div class="brand-item">
+                                                        <div class="brand-logo">UN</div>
+                                                        <span>Uniqlo</span>
+                                                    </div>
+                                                    <div class="brand-item">
+                                                        <div class="brand-logo">NI</div>
+                                                        <span>Nike</span>
+                                                    </div>
+                                                    <div class="brand-item">
+                                                        <div class="brand-logo">AD</div>
+                                                        <span>Adidas</span>
+                                                    </div>
+                                                    <div class="more-brands">
+                                                        <span>+25 more brands</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="campaignAnalytics">
+                                        <div class="analytics-dashboard">
+                                            <div class="analytics-metrics">
+                                                <div class="row g-3 mb-4">
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Total Reach</h6>
+                                                            <div class="metric-value">487,325</div>
+                                                            <small class="text-success">+23% vs target</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Engagement Rate</h6>
+                                                            <div class="metric-value">12.3%</div>
+                                                            <small class="text-success">+2.1% vs avg</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Conversions</h6>
+                                                            <div class="metric-value">15,642</div>
+                                                            <small class="text-success">+18% vs target</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>ROI</h6>
+                                                            <div class="metric-value">5.2x</div>
+                                                            <small class="text-success">Excellent</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="analytics-charts">
+                                                <div class="chart-container">
+                                                    <h6>Performance Over Time</h6>
+                                                    <div class="chart-placeholder">
+                                                        <canvas id="performanceChart" aria-label="Campaign performance chart"></canvas>
+                                                        <p class="text-center mt-3">Daily reach and engagement metrics</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="campaignContent">
+                                        <div class="content-gallery">
+                                            <h6>Campaign Assets</h6>
+                                            <div class="content-grid">
+                                                <div class="content-item">
+                                                    <div class="content-thumbnail">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="content-info">
+                                                        <strong>Hero Banner</strong>
+                                                        <small>1920x1080 - JPG</small>
+                                                    </div>
+                                                    <div class="content-actions">
+                                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                                        <button class="btn btn-sm btn-outline-secondary">Download</button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="content-item">
+                                                    <div class="content-thumbnail">
+                                                        <i class="bi bi-play-circle"></i>
+                                                    </div>
+                                                    <div class="content-info">
+                                                        <strong>Promotional Video</strong>
+                                                        <small>30 sec - MP4</small>
+                                                    </div>
+                                                    <div class="content-actions">
+                                                        <button class="btn btn-sm btn-outline-primary">Play</button>
+                                                        <button class="btn btn-sm btn-outline-secondary">Download</button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="content-item">
+                                                    <div class="content-thumbnail">
+                                                        <i class="bi bi-file-text"></i>
+                                                    </div>
+                                                    <div class="content-info">
+                                                        <strong>Social Media Copy</strong>
+                                                        <small>Text content</small>
+                                                    </div>
+                                                    <div class="content-actions">
+                                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                                        <button class="btn btn-sm btn-outline-secondary">Copy</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="campaignBudget">
+                                        <div class="budget-breakdown">
+                                            <h6>Budget Allocation</h6>
+                                            <div class="budget-chart">
+                                                <div class="budget-item">
+                                                    <div class="budget-category">
+                                                        <span class="category-name">Social Media Advertising</span>
+                                                        <span class="category-amount">₹4,50,000</span>
+                                                    </div>
+                                                    <div class="budget-progress">
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-primary" style="width: 72%"></div>
+                                                        </div>
+                                                        <small>₹3,24,000 spent (72%)</small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="budget-item">
+                                                    <div class="budget-category">
+                                                        <span class="category-name">Digital Display Ads</span>
+                                                        <span class="category-amount">₹3,00,000</span>
+                                                    </div>
+                                                    <div class="budget-progress">
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-info" style="width: 65%"></div>
+                                                        </div>
+                                                        <small>₹1,95,000 spent (65%)</small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="budget-item">
+                                                    <div class="budget-category">
+                                                        <span class="category-name">Event & Activations</span>
+                                                        <span class="category-amount">₹2,50,000</span>
+                                                    </div>
+                                                    <div class="budget-progress">
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-success" style="width: 80%"></div>
+                                                        </div>
+                                                        <small>₹2,00,000 spent (80%)</small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="budget-item">
+                                                    <div class="budget-category">
+                                                        <span class="category-name">Email Marketing</span>
+                                                        <span class="category-amount">₹1,50,000</span>
+                                                    </div>
+                                                    <div class="budget-progress">
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-warning" style="width: 40%"></div>
+                                                        </div>
+                                                        <small>₹60,000 spent (40%)</small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="budget-item">
+                                                    <div class="budget-category">
+                                                        <span class="category-name">Content Creation</span>
+                                                        <span class="category-amount">₹1,00,000</span>
+                                                    </div>
+                                                    <div class="budget-progress">
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-secondary" style="width: 95%"></div>
+                                                        </div>
+                                                        <small>₹95,000 spent (95%)</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="campaign-sidebar">
+                                <div class="campaign-status-card">
+                                    <h6>Campaign Status</h6>
+                                    <div class="status-display">
+                                        <div class="status-circle active">
+                                            <i class="bi bi-play-circle"></i>
+                                        </div>
+                                        <div class="status-info">
+                                            <strong>Active</strong>
+                                            <p>Running successfully</p>
+                                        </div>
+                                    </div>
+                                    <div class="campaign-timeline">
+                                        <div class="timeline-item">
+                                            <span class="timeline-label">Started:</span>
+                                            <span class="timeline-value">38 days ago</span>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <span class="timeline-label">Ends in:</span>
+                                            <span class="timeline-value">39 days</span>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <span class="timeline-label">Progress:</span>
+                                            <span class="timeline-value">65% complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="campaign-actions-panel">
+                                    <h6>Quick Actions</h6>
+                                    <div class="action-buttons-vertical">
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-pause"></i> Pause Campaign
+                                        </button>
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-pencil"></i> Edit Campaign
+                                        </button>
+                                        <button class="btn btn-info w-100 mb-2">
+                                            <i class="bi bi-files"></i> Duplicate Campaign
+                                        </button>
+                                        <button class="btn btn-success w-100">
+                                            <i class="bi bi-download"></i> Export Report
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="campaign-team-info">
+                                    <h6>Campaign Team</h6>
+                                    <div class="team-member">
+                                        <div class="member-avatar">AS</div>
+                                        <div class="member-info">
+                                            <strong>Andrew Starlin</strong>
+                                            <small>Campaign Manager</small>
+                                        </div>
+                                    </div>
+                                    <div class="team-member">
+                                        <div class="member-avatar">MM</div>
+                                        <div class="member-info">
+                                            <strong>Marketing Team</strong>
+                                            <small>Content & Creative</small>
+                                        </div>
+                                    </div>
+                                    <div class="team-member">
+                                        <div class="member-avatar">DT</div>
+                                        <div class="member-info">
+                                            <strong>Digital Team</strong>
+                                            <small>Online Campaigns</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Campaign Analytics Modal -->
+    <div class="modal fade" id="campaignAnalyticsModal" tabindex="-1" aria-labelledby="campaignAnalyticsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="campaignAnalyticsModalLabel">Marketing Analytics Dashboard</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="analytics-summary mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="analytics-metric">
+                                    <h6>Total Campaigns</h6>
+                                    <div class="metric-value">34</div>
+                                    <small class="text-success">+6 this quarter</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="analytics-metric">
+                                    <h6>Average ROI</h6>
+                                    <div class="metric-value">4.8x</div>
+                                    <small class="text-success">+0.3x vs last quarter</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="analytics-metric">
+                                    <h6>Total Budget Spent</h6>
+                                    <div class="metric-value">₹45.2L</div>
+                                    <small class="text-info">78% of annual budget</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="analytics-metric">
+                                    <h6>Avg Engagement</h6>
+                                    <div class="metric-value">9.4%</div>
+                                    <small class="text-success">Above industry average</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-charts-grid">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="chart-container">
+                                    <h6>Campaign Performance Trends</h6>
+                                    <div class="chart-placeholder">
+                                        <canvas id="trendsChart" aria-label="Campaign trends chart"></canvas>
+                                        <p class="text-center mt-3">Monthly campaign performance comparison</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="chart-container">
+                                    <h6>Budget Allocation by Channel</h6>
+                                    <div class="chart-placeholder">
+                                        <canvas id="budgetChart" aria-label="Budget allocation chart"></canvas>
+                                        <p class="text-center mt-3">Marketing spend distribution</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Export Analytics</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

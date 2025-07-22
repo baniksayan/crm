@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Products & Services - Mall CRM Dashboard for managing store inventory, products, and services">
+    <meta name="robots" content="index, follow">
+    <title>Products & Services | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search products, services, inventory..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals_opportunities.html">
+                            <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks_activities.html">
+                            <i class="bi bi-check2-square"></i> Tasks & Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketing.html">
+                            <i class="bi bi-megaphone"></i> Marketing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support_service.html">
+                            <i class="bi bi-headset"></i> Support & Service
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products_services.html">
+                            <i class="bi bi-box-seam"></i> Products & Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="documents.html">
+        <i class="bi bi-file-text"></i> Documents
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Products & Services</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Products & Services Management</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#inventoryReportModal">
+                            <i class="bi bi-bar-chart-line"></i> Inventory Report
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                            <i class="bi bi-plus-lg"></i> Add Product/Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products & Services Statistics Overview -->
+                <section class="products-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card products-stat">
+                                <div class="stat-header">
+                                    <h3>Total Products</h3>
+                                    <i class="bi bi-box text-primary"></i>
+                                </div>
+                                <div class="stat-value">12,547</div>
+                                <div class="stat-change positive">+324 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card products-stat">
+                                <div class="stat-header">
+                                    <h3>Active Services</h3>
+                                    <i class="bi bi-gear-wide-connected text-success"></i>
+                                </div>
+                                <div class="stat-value">847</div>
+                                <div class="stat-change positive">+52 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card products-stat">
+                                <div class="stat-header">
+                                    <h3>Low Stock Items</h3>
+                                    <i class="bi bi-exclamation-triangle text-warning"></i>
+                                </div>
+                                <div class="stat-value">23</div>
+                                <div class="stat-change negative">Needs Attention</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card products-stat">
+                                <div class="stat-header">
+                                    <h3>Total Value</h3>
+                                    <i class="bi bi-currency-rupee text-info"></i>
+                                </div>
+                                <div class="stat-value">₹8.2Cr</div>
+                                <div class="stat-change positive">+12% vs Last Month</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Product Categories Overview -->
+                <section class="product-categories mb-4">
+                    <div class="categories-header">
+                        <h3>Product & Service Categories</h3>
+                        <p class="text-muted">Overview of all product categories across mall stores</p>
+                    </div>
+                    <div class="categories-grid">
+                        <div class="category-card fashion">
+                            <div class="category-icon">
+                                <i class="bi bi-bag-heart"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Fashion & Apparel</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Products</span>
+                                        <span class="stat-value">4,250</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Stores</span>
+                                        <span class="stat-value">45</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹2,850</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" style="width: 34%"></div>
+                                    </div>
+                                    <small>34% of total inventory</small>
+                                </div>
+                            </div>
+                            <div class="category-trend positive">
+                                <i class="bi bi-arrow-up"></i>
+                                <span>+8%</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card food">
+                            <div class="category-icon">
+                                <i class="bi bi-cup-hot"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Food & Beverages</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Items</span>
+                                        <span class="stat-value">1,850</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Outlets</span>
+                                        <span class="stat-value">32</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹420</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" style="width: 15%"></div>
+                                    </div>
+                                    <small>15% of total inventory</small>
+                                </div>
+                            </div>
+                            <div class="category-trend positive">
+                                <i class="bi bi-arrow-up"></i>
+                                <span>+12%</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card electronics">
+                            <div class="category-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Electronics</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Products</span>
+                                        <span class="stat-value">2,950</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Stores</span>
+                                        <span class="stat-value">28</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹15,500</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" style="width: 23%"></div>
+                                    </div>
+                                    <small>23% of total inventory</small>
+                                </div>
+                            </div>
+                            <div class="category-trend positive">
+                                <i class="bi bi-arrow-up"></i>
+                                <span>+5%</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card lifestyle">
+                            <div class="category-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Lifestyle & Beauty</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Products</span>
+                                        <span class="stat-value">1,680</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Stores</span>
+                                        <span class="stat-value">25</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹1,250</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" style="width: 13%"></div>
+                                    </div>
+                                    <small>13% of total inventory</small>
+                                </div>
+                            </div>
+                            <div class="category-trend positive">
+                                <i class="bi bi-arrow-up"></i>
+                                <span>+15%</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card services">
+                            <div class="category-icon">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Services</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Services</span>
+                                        <span class="stat-value">847</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Providers</span>
+                                        <span class="stat-value">51</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹2,200</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-secondary" style="width: 7%"></div>
+                                    </div>
+                                    <small>7% of total offerings</small>
+                                </div>
+                            </div>
+                            <div class="category-trend positive">
+                                <i class="bi bi-arrow-up"></i>
+                                <span>+22%</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card entertainment">
+                            <div class="category-icon">
+                                <i class="bi bi-controller"></i>
+                            </div>
+                            <div class="category-details">
+                                <h5>Entertainment</h5>
+                                <div class="category-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Items</span>
+                                        <span class="stat-value">1,267</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Venues</span>
+                                        <span class="stat-value">15</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Price</span>
+                                        <span class="stat-value">₹650</span>
+                                    </div>
+                                </div>
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" style="width: 8%"></div>
+                                    </div>
+                                    <small>8% of total inventory</small>
+                                </div>
+                            </div>
+                            <div class="category-trend neutral">
+                                <i class="bi bi-dash"></i>
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Inventory Management Dashboard -->
+                <section class="inventory-dashboard mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="inventory-overview">
+                                <h4>Inventory Status Overview</h4>
+                                <div class="inventory-boards">
+                                    <div class="inventory-board in-stock">
+                                        <div class="board-header">
+                                            <h5>In Stock</h5>
+                                            <span class="inventory-count">11,847</span>
+                                        </div>
+                                        <div class="board-items">
+                                            <div class="inventory-item">
+                                                <div class="item-info">
+                                                    <div class="item-image">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <strong>iPhone 15 Pro</strong>
+                                                        <span class="item-store">Apple Store</span>
+                                                        <span class="item-sku">SKU: APL-IP15P-256</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-stock">
+                                                    <span class="stock-level high">85 units</span>
+                                                    <span class="stock-value">₹1,29,900</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="inventory-item">
+                                                <div class="item-info">
+                                                    <div class="item-image">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <strong>Nike Air Max</strong>
+                                                        <span class="item-store">Nike Store</span>
+                                                        <span class="item-sku">SKU: NIK-AM90-WHT</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-stock">
+                                                    <span class="stock-level high">142 units</span>
+                                                    <span class="stock-value">₹12,495</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-items">
+                                                <span>+11,845 more items in stock</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inventory-board low-stock">
+                                        <div class="board-header">
+                                            <h5>Low Stock</h5>
+                                            <span class="inventory-count warning">23</span>
+                                        </div>
+                                        <div class="board-items">
+                                            <div class="inventory-item warning">
+                                                <div class="item-info">
+                                                    <div class="item-image">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <strong>Samsung Galaxy Watch</strong>
+                                                        <span class="item-store">Samsung Store</span>
+                                                        <span class="item-sku">SKU: SAM-GW6-BLK</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-stock">
+                                                    <span class="stock-level low">3 units</span>
+                                                    <span class="stock-value">₹32,999</span>
+                                                </div>
+                                                <div class="item-actions">
+                                                    <button class="btn btn-sm btn-warning">Reorder</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="inventory-item warning">
+                                                <div class="item-info">
+                                                    <div class="item-image">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <strong>Zara Summer Dress</strong>
+                                                        <span class="item-store">Zara Fashion</span>
+                                                        <span class="item-sku">SKU: ZAR-SD25-RED</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-stock">
+                                                    <span class="stock-level low">5 units</span>
+                                                    <span class="stock-value">₹4,990</span>
+                                                </div>
+                                                <div class="item-actions">
+                                                    <button class="btn btn-sm btn-warning">Reorder</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-items">
+                                                <span>+21 more low stock items</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inventory-board out-of-stock">
+                                        <div class="board-header">
+                                            <h5>Out of Stock</h5>
+                                            <span class="inventory-count critical">7</span>
+                                        </div>
+                                        <div class="board-items">
+                                            <div class="inventory-item critical">
+                                                <div class="item-info">
+                                                    <div class="item-image">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                    <div class="item-details">
+                                                        <strong>PlayStation 5</strong>
+                                                        <span class="item-store">Gaming Zone</span>
+                                                        <span class="item-sku">SKU: SNY-PS5-STD</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-stock">
+                                                    <span class="stock-level out">0 units</span>
+                                                    <span class="stock-value">₹49,990</span>
+                                                </div>
+                                                <div class="item-actions">
+                                                    <button class="btn btn-sm btn-danger">Urgent Reorder</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="more-items">
+                                                <span>+6 more out of stock items</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="top-performers">
+                                <h4>Top Performing Products</h4>
+                                <div class="performers-list">
+                                    <div class="performer-item">
+                                        <div class="performer-rank gold">1</div>
+                                        <div class="performer-details">
+                                            <strong>iPhone 15 Pro Max</strong>
+                                            <span class="performer-store">Apple Store</span>
+                                            <div class="performer-metrics">
+                                                <span class="metric-sales">452 sold</span>
+                                                <span class="metric-revenue">₹5.9Cr</span>
+                                            </div>
+                                        </div>
+                                        <div class="performer-trend">
+                                            <i class="bi bi-arrow-up text-success"></i>
+                                            <span>+25%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="performer-item">
+                                        <div class="performer-rank silver">2</div>
+                                        <div class="performer-details">
+                                            <strong>Nike Air Jordan</strong>
+                                            <span class="performer-store">Nike Store</span>
+                                            <div class="performer-metrics">
+                                                <span class="metric-sales">318 sold</span>
+                                                <span class="metric-revenue">₹2.1Cr</span>
+                                            </div>
+                                        </div>
+                                        <div class="performer-trend">
+                                            <i class="bi bi-arrow-up text-success"></i>
+                                            <span>+18%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="performer-item">
+                                        <div class="performer-rank bronze">3</div>
+                                        <div class="performer-details">
+                                            <strong>Zara Premium Collection</strong>
+                                            <span class="performer-store">Zara Fashion</span>
+                                            <div class="performer-metrics">
+                                                <span class="metric-sales">285 sold</span>
+                                                <span class="metric-revenue">₹1.4Cr</span>
+                                            </div>
+                                        </div>
+                                        <div class="performer-trend">
+                                            <i class="bi bi-arrow-up text-success"></i>
+                                            <span>+12%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="performer-item">
+                                        <div class="performer-rank">4</div>
+                                        <div class="performer-details">
+                                            <strong>Samsung Galaxy S24</strong>
+                                            <span class="performer-store">Samsung Store</span>
+                                            <div class="performer-metrics">
+                                                <span class="metric-sales">224 sold</span>
+                                                <span class="metric-revenue">₹1.8Cr</span>
+                                            </div>
+                                        </div>
+                                        <div class="performer-trend">
+                                            <i class="bi bi-arrow-up text-success"></i>
+                                            <span>+8%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="performer-item">
+                                        <div class="performer-rank">5</div>
+                                        <div class="performer-details">
+                                            <strong>Mac Studio Display</strong>
+                                            <span class="performer-store">Apple Store</span>
+                                            <div class="performer-metrics">
+                                                <span class="metric-sales">156 sold</span>
+                                                <span class="metric-revenue">₹2.5Cr</span>
+                                            </div>
+                                        </div>
+                                        <div class="performer-trend">
+                                            <i class="bi bi-arrow-up text-success"></i>
+                                            <span>+5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="service-offerings mt-4">
+                                <h4>Popular Services</h4>
+                                <div class="services-list">
+                                    <div class="service-item">
+                                        <div class="service-icon">
+                                            <i class="bi bi-scissors"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <strong>Hair Styling & Cut</strong>
+                                            <span class="service-provider">Beauty Salon</span>
+                                            <div class="service-metrics">
+                                                <span class="service-bookings">1,245 bookings</span>
+                                                <span class="service-rating">4.8/5 ⭐</span>
+                                            </div>
+                                        </div>
+                                        <div class="service-price">₹850</div>
+                                    </div>
+
+                                    <div class="service-item">
+                                        <div class="service-icon">
+                                            <i class="bi bi-tools"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <strong>Phone Repair Service</strong>
+                                            <span class="service-provider">Tech Support</span>
+                                            <div class="service-metrics">
+                                                <span class="service-bookings">892 services</span>
+                                                <span class="service-rating">4.6/5 ⭐</span>
+                                            </div>
+                                        </div>
+                                        <div class="service-price">₹1,200</div>
+                                    </div>
+
+                                    <div class="service-item">
+                                        <div class="service-icon">
+                                            <i class="bi bi-camera"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <strong>Photography Studio</strong>
+                                            <span class="service-provider">Photo Studio</span>
+                                            <div class="service-metrics">
+                                                <span class="service-bookings">567 sessions</span>
+                                                <span class="service-rating">4.9/5 ⭐</span>
+                                            </div>
+                                        </div>
+                                        <div class="service-price">₹2,500</div>
+                                    </div>
+
+                                    <div class="service-item">
+                                        <div class="service-icon">
+                                            <i class="bi bi-heart-pulse"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <strong>Spa & Wellness</strong>
+                                            <span class="service-provider">Wellness Center</span>
+                                            <div class="service-metrics">
+                                                <span class="service-bookings">423 appointments</span>
+                                                <span class="service-rating">4.7/5 ⭐</span>
+                                            </div>
+                                        </div>
+                                        <div class="service-price">₹3,200</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Products & Services Filters -->
+                <section class="products-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="product-search" class="form-label">Search Products/Services</label>
+                            <input type="search" class="form-control" id="product-search" placeholder="Search by name, SKU, brand, or store..." aria-label="Search products">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="product-category" class="form-label">Category</label>
+                            <select class="form-select" id="product-category">
+                                <option value="">All Categories</option>
+                                <option value="fashion">Fashion & Apparel</option>
+                                <option value="food">Food & Beverages</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="lifestyle">Lifestyle & Beauty</option>
+                                <option value="services">Services</option>
+                                <option value="entertainment">Entertainment</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="product-store" class="form-label">Store</label>
+                            <select class="form-select" id="product-store">
+                                <option value="">All Stores</option>
+                                <option value="apple">Apple Store</option>
+                                <option value="zara">Zara Fashion</option>
+                                <option value="nike">Nike Store</option>
+                                <option value="samsung">Samsung Store</option>
+                                <option value="mcdonalds">McDonald's</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="stock-status" class="form-label">Stock Status</label>
+                            <select class="form-select" id="stock-status">
+                                <option value="">All Stock Levels</option>
+                                <option value="in-stock">In Stock</option>
+                                <option value="low-stock">Low Stock</option>
+                                <option value="out-of-stock">Out of Stock</option>
+                                <option value="discontinued">Discontinued</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Products & Services Table -->
+                <section class="products-table-section">
+                    <div class="section-header mb-3">
+                        <h2>All Products & Services</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="productsView" id="listViewProducts" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="listViewProducts">
+                                    <i class="bi bi-list"></i> List View
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="productsView" id="gridViewProducts">
+                                <label class="btn btn-outline-primary btn-sm" for="gridViewProducts">
+                                    <i class="bi bi-grid-3x3"></i> Grid View
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table products-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Product Name">
+                                                Product/Service <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Store</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">SKU/ID</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Price">
+                                                Price <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Stock Level</th>
+                                        <th scope="col">Sales This Month</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Last Updated">
+                                                Last Updated <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="product-info">
+                                                <div class="product-image">
+                                                    <i class="bi bi-phone"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>iPhone 15 Pro Max</strong>
+                                                    <small class="text-muted d-block">256GB Natural Titanium</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="store-info-mini">
+                                                <div class="store-avatar-mini">AP</div>
+                                                <span>Apple Store</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-info">Electronics</span></td>
+                                        <td>
+                                            <code class="sku-code">APL-IP15PM-256</code>
+                                        </td>
+                                        <td>
+                                            <div class="price-info">
+                                                <strong>₹1,59,900</strong>
+                                                <small class="text-muted d-block">MRP</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="stock-status high">
+                                                <span class="stock-count">47 units</span>
+                                                <span class="stock-label">In Stock</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="sales-info">
+                                                <strong>23 sold</strong>
+                                                <small class="text-success d-block">₹36.8L revenue</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="updated-date">2 hours ago</span>
+                                            <small class="text-muted d-block">Auto-sync</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#productDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Product">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="View Analytics">
+                                                    <i class="bi bi-graph-up"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="product-info">
+                                                <div class="product-image">
+                                                    <i class="bi bi-bag"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Summer Collection Dress</strong>
+                                                    <small class="text-muted d-block">Floral print, Size M</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="store-info-mini">
+                                                <div class="store-avatar-mini">ZA</div>
+                                                <span>Zara Fashion</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">Fashion</span></td>
+                                        <td>
+                                            <code class="sku-code">ZAR-SCD-FLR-M</code>
+                                        </td>
+                                        <td>
+                                            <div class="price-info">
+                                                <strong>₹4,990</strong>
+                                                <small class="text-muted d-block">MRP</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="stock-status low">
+                                                <span class="stock-count">5 units</span>
+                                                <span class="stock-label">Low Stock</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="sales-info">
+                                                <strong>18 sold</strong>
+                                                <small class="text-success d-block">₹89.8K revenue</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="updated-date">1 day ago</span>
+                                            <small class="text-muted d-block">Manual update</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#productDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Product">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-warning" title="Reorder Stock">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="product-info">
+                                                <div class="product-image service">
+                                                    <i class="bi bi-scissors"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Premium Hair Styling</strong>
+                                                    <small class="text-muted d-block">Cut, wash & style service</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="store-info-mini">
+                                                <div class="store-avatar-mini">BS</div>
+                                                <span>Beauty Salon</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">Services</span></td>
+                                        <td>
+                                            <code class="sku-code">SRV-HAIR-PREM</code>
+                                        </td>
+                                        <td>
+                                            <div class="price-info">
+                                                <strong>₹1,200</strong>
+                                                <small class="text-muted d-block">Per session</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="stock-status service">
+                                                <span class="stock-count">Available</span>
+                                                <span class="stock-label">Service</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="sales-info">
+                                                <strong>45 bookings</strong>
+                                                <small class="text-success d-block">₹54K revenue</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="updated-date">3 hours ago</span>
+                                            <small class="text-muted d-block">Pricing update</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Details" data-bs-toggle="modal" data-bs-target="#productDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Service">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Manage Bookings">
+                                                    <i class="bi bi-calendar-check"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Products table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Add New Product/Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="itemType" id="productType" value="product" checked>
+                                    <label class="form-check-label" for="productType">Product</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="itemType" id="serviceType" value="service">
+                                    <label class="form-check-label" for="serviceType">Service</label>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="itemName" class="form-label required">Name</label>
+                                <input type="text" class="form-control" id="itemName" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="itemSKU" class="form-label required">SKU/Service ID</label>
+                                <input type="text" class="form-control" id="itemSKU" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="itemDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="itemDescription" rows="3" placeholder="Product/Service description..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="itemStore" class="form-label required">Store</label>
+                                <select class="form-select" id="itemStore" required>
+                                    <option value="">Select Store</option>
+                                    <option value="apple">Apple Store</option>
+                                    <option value="zara">Zara Fashion</option>
+                                    <option value="nike">Nike Store</option>
+                                    <option value="samsung">Samsung Store</option>
+                                    <option value="beauty">Beauty Salon</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="itemCategory" class="form-label required">Category</label>
+                                <select class="form-select" id="itemCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="fashion">Fashion & Apparel</option>
+                                    <option value="food">Food & Beverages</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="lifestyle">Lifestyle & Beauty</option>
+                                    <option value="services">Services</option>
+                                    <option value="entertainment">Entertainment</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="itemPrice" class="form-label required">Price (₹)</label>
+                                <input type="number" class="form-control" id="itemPrice" required>
+                            </div>
+                            <div class="col-md-6" id="stockSection">
+                                <label for="itemStock" class="form-label">Initial Stock</label>
+                                <input type="number" class="form-control" id="itemStock" placeholder="Enter stock quantity">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="itemBrand" class="form-label">Brand</label>
+                                <input type="text" class="form-control" id="itemBrand" placeholder="Product brand">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="itemBarcode" class="form-label">Barcode</label>
+                                <input type="text" class="form-control" id="itemBarcode" placeholder="Barcode number">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="itemImages" class="form-label">Images</label>
+                                <input type="file" class="form-control" id="itemImages" multiple accept="image/*">
+                                <small class="text-muted">Upload product/service images</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Product/Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productDetailsModalLabel">Product Details - iPhone 15 Pro Max</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="product-details-content">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#productOverview" type="button">Overview</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#productSales" type="button">Sales Analytics</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#productInventory" type="button">Inventory</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#productReviews" type="button">Reviews</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="productOverview">
+                                        <div class="product-overview">
+                                            <h6>Product Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Product Name:</strong> iPhone 15 Pro Max
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>SKU:</strong> APL-IP15PM-256
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Brand:</strong> Apple
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Category:</strong> Electronics
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Store:</strong> Apple Store
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Current Price:</strong> ₹1,59,900
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Launch Date:</strong> September 15, 2024
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Last Updated:</strong> July 23, 2025
+                                                </div>
+                                            </div>
+
+                                            <h6>Product Description</h6>
+                                            <div class="product-description">
+                                                <p>The iPhone 15 Pro Max features a stunning 6.7-inch Super Retina XDR display with ProMotion technology. Powered by the A17 Pro chip, it delivers exceptional performance for professional photography, gaming, and productivity.</p>
+                                                <p><strong>Key Features:</strong></p>
+                                                <ul>
+                                                    <li>6.7-inch Super Retina XDR display</li>
+                                                    <li>A17 Pro chip with 6-core GPU</li>
+                                                    <li>Pro camera system with 48MP main camera</li>
+                                                    <li>256GB storage capacity</li>
+                                                    <li>Natural Titanium finish</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="productSales">
+                                        <div class="sales-analytics">
+                                            <div class="analytics-metrics">
+                                                <div class="row g-3 mb-4">
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Total Sales</h6>
+                                                            <div class="metric-value">452</div>
+                                                            <small class="text-success">Units sold all time</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Revenue</h6>
+                                                            <div class="metric-value">₹7.2Cr</div>
+                                                            <small class="text-success">Total revenue</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>This Month</h6>
+                                                            <div class="metric-value">23</div>
+                                                            <small class="text-success">+15% vs last month</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="metric-card">
+                                                            <h6>Avg Rating</h6>
+                                                            <div class="metric-value">4.8/5</div>
+                                                            <small class="text-success">Based on 156 reviews</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="sales-chart">
+                                                <h6>Sales Trend (Last 6 Months)</h6>
+                                                <div class="chart-placeholder">
+                                                    <canvas id="salesChart" aria-label="Sales trend chart"></canvas>
+                                                    <p class="text-center mt-3">Monthly sales performance and trends</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="productInventory">
+                                        <div class="inventory-details">
+                                            <h6>Stock Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Current Stock:</strong> 47 units
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Stock Status:</strong> <span class="badge bg-success">In Stock</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Minimum Stock Level:</strong> 10 units
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Reorder Point:</strong> 15 units
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Last Restocked:</strong> July 15, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Supplier:</strong> Apple India Pvt Ltd
+                                                </div>
+                                            </div>
+
+                                            <h6>Recent Stock Movements</h6>
+                                            <div class="stock-movements">
+                                                <div class="movement-item">
+                                                    <div class="movement-type sale">
+                                                        <i class="bi bi-arrow-down"></i>
+                                                        <span>Sale</span>
+                                                    </div>
+                                                    <div class="movement-details">
+                                                        <strong>1 unit sold</strong>
+                                                        <small>July 23, 2025 - 11:30 AM</small>
+                                                    </div>
+                                                    <div class="movement-balance">47 units</div>
+                                                </div>
+                                                <div class="movement-item">
+                                                    <div class="movement-type restock">
+                                                        <i class="bi bi-arrow-up"></i>
+                                                        <span>Restock</span>
+                                                    </div>
+                                                    <div class="movement-details">
+                                                        <strong>25 units added</strong>
+                                                        <small>July 15, 2025 - 2:00 PM</small>
+                                                    </div>
+                                                    <div class="movement-balance">48 units</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="productReviews">
+                                        <div class="product-reviews">
+                                            <div class="reviews-summary">
+                                                <div class="rating-overview">
+                                                    <div class="overall-rating">
+                                                        <span class="rating-score">4.8</span>
+                                                        <div class="rating-stars">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-half"></i>
+                                                        </div>
+                                                        <small>Based on 156 reviews</small>
+                                                    </div>
+                                                    <div class="rating-breakdown">
+                                                        <div class="rating-bar">
+                                                            <span>5★</span>
+                                                            <div class="bar">
+                                                                <div class="fill" style="width: 75%"></div>
+                                                            </div>
+                                                            <span>75%</span>
+                                                        </div>
+                                                        <div class="rating-bar">
+                                                            <span>4★</span>
+                                                            <div class="bar">
+                                                                <div class="fill" style="width: 20%"></div>
+                                                            </div>
+                                                            <span>20%</span>
+                                                        </div>
+                                                        <div class="rating-bar">
+                                                            <span>3★</span>
+                                                            <div class="bar">
+                                                                <div class="fill" style="width: 3%"></div>
+                                                            </div>
+                                                            <span>3%</span>
+                                                        </div>
+                                                        <div class="rating-bar">
+                                                            <span>2★</span>
+                                                            <div class="bar">
+                                                                <div class="fill" style="width: 1%"></div>
+                                                            </div>
+                                                            <span>1%</span>
+                                                        </div>
+                                                        <div class="rating-bar">
+                                                            <span>1★</span>
+                                                            <div class="bar">
+                                                                <div class="fill" style="width: 1%"></div>
+                                                            </div>
+                                                            <span>1%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="recent-reviews">
+                                                <h6>Recent Reviews</h6>
+                                                <div class="review-item">
+                                                    <div class="reviewer-info">
+                                                        <div class="reviewer-avatar">RK</div>
+                                                        <div class="reviewer-details">
+                                                            <strong>Rahul Kumar</strong>
+                                                            <div class="review-rating">
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                        <span class="review-date">2 days ago</span>
+                                                    </div>
+                                                    <div class="review-content">
+                                                        <p>"Excellent phone with amazing camera quality. The titanium build feels premium and the battery life is impressive."</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="review-item">
+                                                    <div class="reviewer-info">
+                                                        <div class="reviewer-avatar">PS</div>
+                                                        <div class="reviewer-details">
+                                                            <strong>Priya Singh</strong>
+                                                            <div class="review-rating">
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star-fill"></i>
+                                                                <i class="bi bi-star"></i>
+                                                            </div>
+                                                        </div>
+                                                        <span class="review-date">1 week ago</span>
+                                                    </div>
+                                                    <div class="review-content">
+                                                        <p>"Great performance and display quality. Only issue is the price point, but overall satisfied with the purchase."</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="product-sidebar">
+                                <div class="product-image-gallery">
+                                    <div class="main-image">
+                                        <img src="#" alt="iPhone 15 Pro Max" style="width: 100%; height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                                    </div>
+                                    <div class="image-thumbnails">
+                                        <div class="thumbnail active"></div>
+                                        <div class="thumbnail"></div>
+                                        <div class="thumbnail"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-quick-stats">
+                                    <h6>Quick Stats</h6>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Current Stock:</span>
+                                        <span class="stat-value">47 units</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Sales This Month:</span>
+                                        <span class="stat-value">23 units</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Revenue:</span>
+                                        <span class="stat-value">₹36.8L</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Avg Rating:</span>
+                                        <span class="stat-value">4.8/5 ⭐</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-actions-panel">
+                                    <h6>Quick Actions</h6>
+                                    <div class="action-buttons-vertical">
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-pencil"></i> Edit Product
+                                        </button>
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-arrow-repeat"></i> Reorder Stock
+                                        </button>
+                                        <button class="btn btn-info w-100 mb-2">
+                                            <i class="bi bi-tag"></i> Update Price
+                                        </button>
+                                        <button class="btn btn-success w-100">
+                                            <i class="bi bi-graph-up"></i> View Analytics
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Report Modal -->
+    <div class="modal fade" id="inventoryReportModal" tabindex="-1" aria-labelledby="inventoryReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inventoryReportModalLabel">Inventory & Sales Report</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="report-controls mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label for="reportTimeframe" class="form-label">Time Period</label>
+                                <select class="form-select" id="reportTimeframe">
+                                    <option value="7" selected>Last 7 Days</option>
+                                    <option value="30">Last 30 Days</option>
+                                    <option value="90">Last 3 Months</option>
+                                    <option value="365">Last Year</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="reportStore" class="form-label">Store</label>
+                                <select class="form-select" id="reportStore">
+                                    <option value="">All Stores</option>
+                                    <option value="apple">Apple Store</option>
+                                    <option value="zara">Zara Fashion</option>
+                                    <option value="nike">Nike Store</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="reportCategoryFilter" class="form-label">Category</label>
+                                <select class="form-select" id="reportCategoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="fashion">Fashion</option>
+                                    <option value="services">Services</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button class="btn btn-primary w-100">Generate Report</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory-report-summary">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3">
+                                <div class="report-summary-card">
+                                    <h6>Total Products</h6>
+                                    <div class="summary-value">12,547</div>
+                                    <small class="text-success">+324 new this period</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="report-summary-card">
+                                    <h6>Total Sales</h6>
+                                    <div class="summary-value">2,847</div>
+                                    <small class="text-success">+18% vs last period</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="report-summary-card">
+                                    <h6>Revenue</h6>
+                                    <div class="summary-value">₹8.2Cr</div>
+                                    <small class="text-success">+12% vs last period</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="report-summary-card">
+                                    <h6>Low Stock Items</h6>
+                                    <div class="summary-value">23</div>
+                                    <small class="text-warning">Requires attention</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory-charts">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="chart-container">
+                                    <h6>Sales by Category</h6>
+                                    <div class="chart-placeholder">
+                                        <canvas id="categoryChart" aria-label="Sales by category chart"></canvas>
+                                        <p class="text-center mt-3">Revenue distribution across product categories</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="chart-container">
+                                    <h6>Inventory Levels</h6>
+                                    <div class="chart-placeholder">
+                                        <canvas id="inventoryChart" aria-label="Inventory levels chart"></canvas>
+                                        <p class="text-center mt-3">Current stock levels by store</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Export PDF</button>
+                    <button type="button" class="btn btn-outline-secondary">Export Excel</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Product Type Toggle Script -->
+    <script>
+        document.querySelectorAll('input[name="itemType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const stockSection = document.getElementById('stockSection');
+                if (this.value === 'service') {
+                    stockSection.style.display = 'none';
+                } else {
+                    stockSection.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

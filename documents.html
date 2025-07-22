@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documents - Mall CRM Dashboard for managing contracts, agreements, and documentation">
+    <meta name="robots" content="index, follow">
+    <title>Documents | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search documents, contracts, reports..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals_opportunities.html">
+                            <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks_activities.html">
+                            <i class="bi bi-check2-square"></i> Tasks & Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketing.html">
+                            <i class="bi bi-megaphone"></i> Marketing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support_service.html">
+                            <i class="bi bi-headset"></i> Support & Service
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products_services.html">
+                            <i class="bi bi-box-seam"></i> Products & Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documents.html">
+                            <i class="bi bi-file-text"></i> Documents
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Documents</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Document Management</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#bulkUploadModal">
+                            <i class="bi bi-cloud-upload"></i> Bulk Upload
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal">
+                            <i class="bi bi-plus-lg"></i> Upload Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Document Statistics Overview -->
+                <section class="document-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card document-stat">
+                                <div class="stat-header">
+                                    <h3>Total Documents</h3>
+                                    <i class="bi bi-files text-primary"></i>
+                                </div>
+                                <div class="stat-value">2,847</div>
+                                <div class="stat-change positive">+127 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card document-stat">
+                                <div class="stat-header">
+                                    <h3>Active Contracts</h3>
+                                    <i class="bi bi-file-earmark-text text-success"></i>
+                                </div>
+                                <div class="stat-value">156</div>
+                                <div class="stat-change positive">12 Renewed</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card document-stat">
+                                <div class="stat-header">
+                                    <h3>Expiring Soon</h3>
+                                    <i class="bi bi-exclamation-triangle text-warning"></i>
+                                </div>
+                                <div class="stat-value">23</div>
+                                <div class="stat-change negative">Next 30 Days</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card document-stat">
+                                <div class="stat-header">
+                                    <h3>Storage Used</h3>
+                                    <i class="bi bi-hdd text-info"></i>
+                                </div>
+                                <div class="stat-value">8.7GB</div>
+                                <div class="stat-change neutral">of 50GB</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Document Categories -->
+                <section class="document-categories mb-4">
+                    <div class="categories-header">
+                        <h3>Document Categories</h3>
+                        <p class="text-muted">Organized document types for easy access and management</p>
+                    </div>
+                    <div class="categories-grid">
+                        <div class="document-category-card contracts">
+                            <div class="category-header-section">
+                                <div class="category-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="category-title-section">
+                                    <h5>Contracts & Agreements</h5>
+                                    <p class="category-subtitle">Lease agreements, service contracts</p>
+                                </div>
+                            </div>
+                            <div class="category-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total</span>
+                                    <span class="stat-value">456</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Active</span>
+                                    <span class="stat-value">156</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Expiring</span>
+                                    <span class="stat-value">23</span>
+                                </div>
+                            </div>
+                            <div class="category-footer">
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 68%"></div>
+                                    </div>
+                                    <small>68% of total documents</small>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">View All</button>
+                            </div>
+                        </div>
+
+                        <div class="document-category-card reports">
+                            <div class="category-header-section">
+                                <div class="category-icon">
+                                    <i class="bi bi-bar-chart"></i>
+                                </div>
+                                <div class="category-title-section">
+                                    <h5>Reports & Analytics</h5>
+                                    <p class="category-subtitle">Financial, sales, operational reports</p>
+                                </div>
+                            </div>
+                            <div class="category-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total</span>
+                                    <span class="stat-value">892</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Monthly</span>
+                                    <span class="stat-value">67</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Annual</span>
+                                    <span class="stat-value">12</span>
+                                </div>
+                            </div>
+                            <div class="category-footer">
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 31%"></div>
+                                    </div>
+                                    <small>31% of total documents</small>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">View All</button>
+                            </div>
+                        </div>
+
+                        <div class="document-category-card legal">
+                            <div class="category-header-section">
+                                <div class="category-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="category-title-section">
+                                    <h5>Legal & Compliance</h5>
+                                    <p class="category-subtitle">Permits, licenses, certifications</p>
+                                </div>
+                            </div>
+                            <div class="category-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total</span>
+                                    <span class="stat-value">234</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Valid</span>
+                                    <span class="stat-value">198</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Renewal</span>
+                                    <span class="stat-value">8</span>
+                                </div>
+                            </div>
+                            <div class="category-footer">
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 15%"></div>
+                                    </div>
+                                    <small>15% of total documents</small>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">View All</button>
+                            </div>
+                        </div>
+
+                        <div class="document-category-card financial">
+                            <div class="category-header-section">
+                                <div class="category-icon">
+                                    <i class="bi bi-currency-rupee"></i>
+                                </div>
+                                <div class="category-title-section">
+                                    <h5>Financial Documents</h5>
+                                    <p class="category-subtitle">Invoices, receipts, statements</p>
+                                </div>
+                            </div>
+                            <div class="category-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total</span>
+                                    <span class="stat-value">1,265</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Pending</span>
+                                    <span class="stat-value">45</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Paid</span>
+                                    <span class="stat-value">1,220</span>
+                                </div>
+                            </div>
+                            <div class="category-footer">
+                                <div class="category-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 44%"></div>
+                                    </div>
+                                    <small>44% of total documents</small>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">View All</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Documents & Quick Access -->
+                <section class="document-dashboard mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="recent-documents">
+                                <h4>Recent Documents</h4>
+                                <div class="documents-list">
+                                    <div class="document-item urgent">
+                                        <div class="document-icon">
+                                            <i class="bi bi-file-earmark-pdf"></i>
+                                        </div>
+                                        <div class="document-details">
+                                            <div class="document-header">
+                                                <h6>Zara Fashion Lease Renewal Agreement</h6>
+                                                <span class="document-status urgent">Needs Signature</span>
+                                            </div>
+                                            <div class="document-meta">
+                                                <span class="document-type">Contract</span>
+                                                <span class="document-size">2.4 MB</span>
+                                                <span class="document-date">Updated: July 22, 2025</span>
+                                            </div>
+                                            <div class="document-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" style="width: 85%"></div>
+                                                </div>
+                                                <small>85% Complete - Pending signature</small>
+                                            </div>
+                                        </div>
+                                        <div class="document-actions">
+                                            <button class="btn btn-sm btn-primary" title="View Document">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning" title="Send for Signature">
+                                                <i class="bi bi-pen"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="document-item">
+                                        <div class="document-icon">
+                                            <i class="bi bi-file-earmark-spreadsheet"></i>
+                                        </div>
+                                        <div class="document-details">
+                                            <div class="document-header">
+                                                <h6>Monthly Revenue Report - June 2025</h6>
+                                                <span class="document-status completed">Approved</span>
+                                            </div>
+                                            <div class="document-meta">
+                                                <span class="document-type">Report</span>
+                                                <span class="document-size">1.8 MB</span>
+                                                <span class="document-date">Created: July 15, 2025</span>
+                                            </div>
+                                            <div class="document-tags">
+                                                <span class="tag">Monthly</span>
+                                                <span class="tag">Financial</span>
+                                                <span class="tag">Revenue</span>
+                                            </div>
+                                        </div>
+                                        <div class="document-actions">
+                                            <button class="btn btn-sm btn-primary" title="View Document">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info" title="Share">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="document-item">
+                                        <div class="document-icon">
+                                            <i class="bi bi-file-earmark-image"></i>
+                                        </div>
+                                        <div class="document-details">
+                                            <div class="document-header">
+                                                <h6>Apple Store Floor Plan Revision</h6>
+                                                <span class="document-status draft">Draft</span>
+                                            </div>
+                                            <div class="document-meta">
+                                                <span class="document-type">Blueprint</span>
+                                                <span class="document-size">5.2 MB</span>
+                                                <span class="document-date">Updated: July 20, 2025</span>
+                                            </div>
+                                            <div class="document-tags">
+                                                <span class="tag">Floor Plan</span>
+                                                <span class="tag">Apple Store</span>
+                                            </div>
+                                        </div>
+                                        <div class="document-actions">
+                                            <button class="btn btn-sm btn-primary" title="View Document">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success" title="Approve">
+                                                <i class="bi bi-check"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="document-item">
+                                        <div class="document-icon">
+                                            <i class="bi bi-file-earmark-text"></i>
+                                        </div>
+                                        <div class="document-details">
+                                            <div class="document-header">
+                                                <h6>Fire Safety Compliance Certificate</h6>
+                                                <span class="document-status valid">Valid</span>
+                                            </div>
+                                            <div class="document-meta">
+                                                <span class="document-type">Certificate</span>
+                                                <span class="document-size">856 KB</span>
+                                                <span class="document-date">Expires: Dec 31, 2025</span>
+                                            </div>
+                                            <div class="document-tags">
+                                                <span class="tag">Safety</span>
+                                                <span class="tag">Compliance</span>
+                                                <span class="tag">Annual</span>
+                                            </div>
+                                        </div>
+                                        <div class="document-actions">
+                                            <button class="btn btn-sm btn-primary" title="View Document">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info" title="Verify">
+                                                <i class="bi bi-shield-check"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="document-alerts">
+                                <h4>Document Alerts</h4>
+                                <div class="alerts-list">
+                                    <div class="alert-item critical">
+                                        <div class="alert-icon">
+                                            <i class="bi bi-exclamation-triangle-fill"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">Contract Expiring</div>
+                                            <div class="alert-description">McDonald's lease agreement expires in 7 days</div>
+                                            <div class="alert-time">Expires: July 30, 2025</div>
+                                        </div>
+                                        <div class="alert-actions">
+                                            <button class="btn btn-sm btn-danger">Renew</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert-item warning">
+                                        <div class="alert-icon">
+                                            <i class="bi bi-clock-fill"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">Document Pending</div>
+                                            <div class="alert-description">15 documents awaiting approval</div>
+                                            <div class="alert-time">Oldest: 5 days ago</div>
+                                        </div>
+                                        <div class="alert-actions">
+                                            <button class="btn btn-sm btn-warning">Review</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert-item info">
+                                        <div class="alert-icon">
+                                            <i class="bi bi-info-circle-fill"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">Storage Alert</div>
+                                            <div class="alert-description">Document storage is 75% full</div>
+                                            <div class="alert-time">8.7GB of 50GB used</div>
+                                        </div>
+                                        <div class="alert-actions">
+                                            <button class="btn btn-sm btn-info">Manage</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quick-actions mt-4">
+                                <h4>Quick Actions</h4>
+                                <div class="quick-actions-grid">
+                                    <button class="quick-action-btn contracts" data-bs-toggle="modal" data-bs-target="#createContractModal">
+                                        <i class="bi bi-file-earmark-plus"></i>
+                                        <span>New Contract</span>
+                                    </button>
+                                    <button class="quick-action-btn reports" data-bs-toggle="modal" data-bs-target="#generateReportModal">
+                                        <i class="bi bi-bar-chart-line"></i>
+                                        <span>Generate Report</span>
+                                    </button>
+                                    <button class="quick-action-btn scan">
+                                        <i class="bi bi-upc-scan"></i>
+                                        <span>Scan Document</span>
+                                    </button>
+                                    <button class="quick-action-btn templates" data-bs-toggle="modal" data-bs-target="#templatesModal">
+                                        <i class="bi bi-file-earmark-code"></i>
+                                        <span>Templates</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Document Filters -->
+                <section class="document-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="document-search" class="form-label">Search Documents</label>
+                            <input type="search" class="form-control" id="document-search" placeholder="Search by name, content, or tags..." aria-label="Search documents">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="document-category" class="form-label">Category</label>
+                            <select class="form-select" id="document-category">
+                                <option value="">All Categories</option>
+                                <option value="contracts">Contracts</option>
+                                <option value="reports">Reports</option>
+                                <option value="legal">Legal</option>
+                                <option value="financial">Financial</option>
+                                <option value="operational">Operational</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="document-status" class="form-label">Status</label>
+                            <select class="form-select" id="document-status">
+                                <option value="">All Status</option>
+                                <option value="draft">Draft</option>
+                                <option value="pending">Pending Approval</option>
+                                <option value="approved">Approved</option>
+                                <option value="expired">Expired</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="document-date" class="form-label">Date Range</label>
+                            <select class="form-select" id="document-date">
+                                <option value="">All Dates</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="quarter">This Quarter</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Table -->
+                <section class="documents-table-section">
+                    <div class="section-header mb-3">
+                        <h2>All Documents</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="documentsView" id="listViewDocuments" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="listViewDocuments">
+                                    <i class="bi bi-list"></i> List View
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="documentsView" id="gridViewDocuments">
+                                <label class="btn btn-outline-primary btn-sm" for="gridViewDocuments">
+                                    <i class="bi bi-grid-3x3"></i> Grid View
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table documents-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="30">
+                                            <input type="checkbox" class="form-check-input" id="selectAllDocs">
+                                        </th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Document Name">
+                                                Document Name <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Last Modified">
+                                                Last Modified <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="document-row urgent">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="document-name-cell">
+                                                <div class="file-icon pdf">
+                                                    <i class="bi bi-file-earmark-pdf"></i>
+                                                </div>
+                                                <div class="file-details">
+                                                    <strong>Zara Fashion Lease Renewal Agreement</strong>
+                                                    <small class="text-muted">Contract renewal for 3-year term</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-danger">PDF</span></td>
+                                        <td><span class="badge bg-primary">Contract</span></td>
+                                        <td><span class="status-indicator urgent">Needs Signature</span></td>
+                                        <td>2.4 MB</td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">AS</div>
+                                                <span>Andrew Starlin</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="modified-date">July 22, 2025</span>
+                                            <small class="text-muted d-block">4:30 PM</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary" title="View Document" data-bs-toggle="modal" data-bs-target="#documentViewerModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                    <i class="bi bi-download"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" title="Send for Signature">
+                                                    <i class="bi bi-pen"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="document-row">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="document-name-cell">
+                                                <div class="file-icon excel">
+                                                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                                                </div>
+                                                <div class="file-details">
+                                                    <strong>Monthly Revenue Report - June 2025</strong>
+                                                    <small class="text-muted">Financial performance analysis</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">XLSX</span></td>
+                                        <td><span class="badge bg-info">Report</span></td>
+                                        <td><span class="status-indicator approved">Approved</span></td>
+                                        <td>1.8 MB</td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">FM</div>
+                                                <span>Finance Manager</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="modified-date">July 15, 2025</span>
+                                            <small class="text-muted d-block">2:15 PM</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary" title="View Document" data-bs-toggle="modal" data-bs-target="#documentViewerModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                    <i class="bi bi-download"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-info" title="Share">
+                                                    <i class="bi bi-share"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="document-row">
+                                        <td>
+                                            <input type="checkbox" class="form-check-input">
+                                        </td>
+                                        <td>
+                                            <div class="document-name-cell">
+                                                <div class="file-icon image">
+                                                    <i class="bi bi-file-earmark-image"></i>
+                                                </div>
+                                                <div class="file-details">
+                                                    <strong>Apple Store Floor Plan Revision</strong>
+                                                    <small class="text-muted">Updated store layout design</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">PNG</span></td>
+                                        <td><span class="badge bg-secondary">Blueprint</span></td>
+                                        <td><span class="status-indicator draft">Draft</span></td>
+                                        <td>5.2 MB</td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">DT</div>
+                                                <span>Design Team</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="modified-date">July 20, 2025</span>
+                                            <small class="text-muted d-block">11:45 AM</small>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary" title="View Document" data-bs-toggle="modal" data-bs-target="#documentViewerModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Download">
+                                                    <i class="bi bi-download"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Approve">
+                                                    <i class="bi bi-check"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bulk Actions -->
+                    <div class="bulk-actions mt-3" style="display: none;">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="selected-count">0 documents selected</span>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="bi bi-download"></i> Download
+                            </button>
+                            <button class="btn btn-sm btn-warning">
+                                <i class="bi bi-archive"></i> Archive
+                            </button>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Documents table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload Document Modal -->
+    <div class="modal fade" id="uploadDocumentModal" tabindex="-1" aria-labelledby="uploadDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadDocumentModalLabel">Upload Document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="file-upload-area">
+                                    <div class="upload-zone" id="uploadZone">
+                                        <i class="bi bi-cloud-upload"></i>
+                                        <h5>Drag & drop files here</h5>
+                                        <p>or <a href="#" class="text-primary" id="browseFiles">browse files</a></p>
+                                        <input type="file" id="fileInput" multiple style="display: none;" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.gif">
+                                    </div>
+                                    <div class="file-list" id="fileList" style="display: none;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="documentTitle" class="form-label required">Document Title</label>
+                                <input type="text" class="form-control" id="documentTitle" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="documentCategory" class="form-label required">Category</label>
+                                <select class="form-select" id="documentCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="contracts">Contracts & Agreements</option>
+                                    <option value="reports">Reports & Analytics</option>
+                                    <option value="legal">Legal & Compliance</option>
+                                    <option value="financial">Financial Documents</option>
+                                    <option value="operational">Operational</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="documentDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="documentDescription" rows="3" placeholder="Document description and notes..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentTags" class="form-label">Tags</label>
+                                <input type="text" class="form-control" id="documentTags" placeholder="Enter tags separated by commas">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentAccess" class="form-label">Access Level</label>
+                                <select class="form-select" id="documentAccess">
+                                    <option value="private">Private</option>
+                                    <option value="internal" selected>Internal</option>
+                                    <option value="restricted">Restricted</option>
+                                    <option value="public">Public</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentExpiry" class="form-label">Expiry Date (if applicable)</label>
+                                <input type="date" class="form-control" id="documentExpiry">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentOwner" class="form-label">Owner</label>
+                                <select class="form-select" id="documentOwner">
+                                    <option value="andrew" selected>Andrew Starlin</option>
+                                    <option value="finance">Finance Team</option>
+                                    <option value="legal">Legal Team</option>
+                                    <option value="operations">Operations Team</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Upload Documents</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Viewer Modal -->
+    <div class="modal fade" id="documentViewerModal" tabindex="-1" aria-labelledby="documentViewerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="documentViewerModalLabel">Document Viewer - Zara Fashion Lease Renewal Agreement</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="document-viewer">
+                                <div class="viewer-toolbar">
+                                    <div class="toolbar-left">
+                                        <button class="btn btn-sm btn-outline-secondary" title="Zoom In">
+                                            <i class="bi bi-zoom-in"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary" title="Zoom Out">
+                                            <i class="bi bi-zoom-out"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary" title="Fit to Width">
+                                            <i class="bi bi-arrows-expand"></i>
+                                        </button>
+                                        <span class="zoom-level">100%</span>
+                                    </div>
+                                    <div class="toolbar-right">
+                                        <span class="page-info">Page 1 of 12</span>
+                                        <button class="btn btn-sm btn-outline-secondary" title="Previous Page">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary" title="Next Page">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="document-preview">
+                                    <div class="preview-placeholder">
+                                        <i class="bi bi-file-earmark-pdf text-danger" style="font-size: 4rem;"></i>
+                                        <p class="mt-3">Document preview would display here</p>
+                                        <p class="text-muted">PDF viewer integration required</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="document-sidebar">
+                                <div class="document-info-panel">
+                                    <h6>Document Information</h6>
+                                    <div class="info-item">
+                                        <span class="info-label">Title:</span>
+                                        <span class="info-value">Zara Fashion Lease Renewal Agreement</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Type:</span>
+                                        <span class="info-value">PDF Document</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Size:</span>
+                                        <span class="info-value">2.4 MB</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Pages:</span>
+                                        <span class="info-value">12</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Created:</span>
+                                        <span class="info-value">July 20, 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Modified:</span>
+                                        <span class="info-value">July 22, 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Owner:</span>
+                                        <span class="info-value">Andrew Starlin</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="document-actions-panel">
+                                    <h6>Actions</h6>
+                                    <div class="action-buttons-vertical">
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-download"></i> Download
+                                        </button>
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-pen"></i> Send for Signature
+                                        </button>
+                                        <button class="btn btn-info w-100 mb-2">
+                                            <i class="bi bi-share"></i> Share
+                                        </button>
+                                        <button class="btn btn-success w-100">
+                                            <i class="bi bi-check"></i> Approve
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="document-comments">
+                                    <h6>Comments</h6>
+                                    <div class="comment-item">
+                                        <div class="comment-avatar">AS</div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <strong>Andrew Starlin</strong>
+                                                <span class="comment-time">2 hours ago</span>
+                                            </div>
+                                            <p>Contract terms updated as per discussion with tenant.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="add-comment">
+                                        <textarea class="form-control" rows="3" placeholder="Add a comment..."></textarea>
+                                        <button class="btn btn-primary btn-sm mt-2">Add Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Upload Modal -->
+    <div class="modal fade" id="bulkUploadModal" tabindex="-1" aria-labelledby="bulkUploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bulkUploadModalLabel">Bulk Document Upload</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="bulk-upload-area">
+                        <div class="upload-instructions mb-4">
+                            <h6>Bulk Upload Instructions</h6>
+                            <ul>
+                                <li>Select multiple files (up to 50 files at once)</li>
+                                <li>Supported formats: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, JPG, PNG</li>
+                                <li>Maximum file size: 10MB per file</li>
+                                <li>Files will be categorized automatically based on content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bulk-drop-zone">
+                            <i class="bi bi-cloud-upload" style="font-size: 3rem; color: var(--golden-brown);"></i>
+                            <h5>Drop multiple files here</h5>
+                            <p>or <a href="#" class="text-primary">browse files</a></p>
+                            <input type="file" multiple style="display: none;">
+                        </div>
+                        
+                        <div class="upload-progress" style="display: none;">
+                            <h6>Upload Progress</h6>
+                            <div class="progress mb-2">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="upload-status">
+                                <span>0 of 0 files uploaded</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" disabled>Start Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Document Management Scripts -->
+    <script>
+        // File upload functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadZone = document.getElementById('uploadZone');
+            const fileInput = document.getElementById('fileInput');
+            const browseFiles = document.getElementById('browseFiles');
+            const fileList = document.getElementById('fileList');
+
+            browseFiles.addEventListener('click', function(e) {
+                e.preventDefault();
+                fileInput.click();
+            });
+
+            uploadZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadZone.classList.add('dragover');
+            });
+
+            uploadZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadZone.classList.remove('dragover');
+            });
+
+            uploadZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadZone.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileInput.addEventListener('change', function(e) {
+                handleFiles(e.target.files);
+            });
+
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    fileList.style.display = 'block';
+                    fileList.innerHTML = '';
+                    
+                    Array.from(files).forEach(file => {
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-item';
+                        fileItem.innerHTML = `
+                            <div class="file-info">
+                                <i class="bi bi-file-earmark"></i>
+                                <span>${file.name}</span>
+                                <small>${(file.size / 1024 / 1024).toFixed(2)} MB</small>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-danger remove-file">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        `;
+                        fileList.appendChild(fileItem);
+                    });
+                }
+            }
+
+            // Bulk selection functionality
+            document.getElementById('selectAllDocs').addEventListener('change', function(e) {
+                const checkboxes = document.querySelectorAll('.documents-table tbody input[type="checkbox"]');
+                const bulkActions = document.querySelector('.bulk-actions');
+                const selectedCount = document.querySelector('.selected-count');
+                
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = e.target.checked;
+                });
+                
+                if (e.target.checked) {
+                    bulkActions.style.display = 'block';
+                    selectedCount.textContent = `${checkboxes.length} documents selected`;
+                } else {
+                    bulkActions.style.display = 'none';
+                }
+            });
+
+            // Individual checkbox selection
+            document.querySelectorAll('.documents-table tbody input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const selectedCheckboxes = document.querySelectorAll('.documents-table tbody input[type="checkbox"]:checked');
+                    const bulkActions = document.querySelector('.bulk-actions');
+                    const selectedCount = document.querySelector('.selected-count');
+                    
+                    if (selectedCheckboxes.length > 0) {
+                        bulkActions.style.display = 'block';
+                        selectedCount.textContent = `${selectedCheckboxes.length} documents selected`;
+                    } else {
+                        bulkActions.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

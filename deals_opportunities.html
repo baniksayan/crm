@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deals & Opportunities - Mall CRM Dashboard for tracking lease negotiations and renewals">
+    <meta name="robots" content="index, follow">
+    <title>Deals & Opportunities | Mall CRM Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-nav" role="banner">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-section">
+                        <h1 class="logo">MallCRM</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="search" class="form-control search-input" placeholder="Search deals, opportunities, lease negotiations..." aria-label="Search">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-profile">
+                        <span class="user-name">Andrew Starlin</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="navigation">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_user.html">
+                            <i class="bi bi-people"></i> Manage Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_user.html">
+                            <i class="bi bi-person-plus"></i> Add User
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lead_management.html">
+                            <i class="bi bi-person-plus-fill"></i> Lead Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_management.html">
+                            <i class="bi bi-people-fill"></i> Customer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="deals_opportunities.html">
+                            <i class="bi bi-currency-dollar"></i> Deals & Opportunities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="tasks_activities.html">
+        <i class="bi bi-check2-square"></i> Tasks & Activities
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="marketing.html">
+        <i class="bi bi-megaphone"></i> Marketing
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="support_service.html">
+        <i class="bi bi-headset"></i> Support & Service
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="products_services.html">
+        <i class="bi bi-box-seam"></i> Products & Services
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="documents.html">
+        <i class="bi bi-file-text"></i> Documents
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="store_management.html">
+                            <i class="bi bi-shop"></i> Store Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="bi bi-graph-up"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Deals & Opportunities</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Deals & Opportunities</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#forecastModal">
+                            <i class="bi bi-graph-up-arrow"></i> Revenue Forecast
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDealModal">
+                            <i class="bi bi-plus-lg"></i> Add New Deal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deals Statistics Overview -->
+                <section class="deals-stats mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card deals-stat">
+                                <div class="stat-header">
+                                    <h3>Active Deals</h3>
+                                    <i class="bi bi-briefcase text-primary"></i>
+                                </div>
+                                <div class="stat-value">45</div>
+                                <div class="stat-change positive">+12 This Month</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card deals-stat">
+                                <div class="stat-header">
+                                    <h3>Pipeline Value</h3>
+                                    <i class="bi bi-currency-rupee text-success"></i>
+                                </div>
+                                <div class="stat-value">₹8.7Cr</div>
+                                <div class="stat-change positive">Potential Revenue</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card deals-stat">
+                                <div class="stat-header">
+                                    <h3>Renewal Rate</h3>
+                                    <i class="bi bi-arrow-repeat text-warning"></i>
+                                </div>
+                                <div class="stat-value">87%</div>
+                                <div class="stat-change positive">+5% vs Last Year</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card deals-stat">
+                                <div class="stat-header">
+                                    <h3>Avg Deal Size</h3>
+                                    <i class="bi bi-graph-up text-info"></i>
+                                </div>
+                                <div class="stat-value">₹19.3L</div>
+                                <div class="stat-change positive">+8% vs Last Quarter</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deals Pipeline Visualization -->
+                <section class="deals-pipeline mb-4">
+                    <div class="pipeline-header">
+                        <h3>Sales Pipeline</h3>
+                        <p class="text-muted">Track deals through different negotiation stages</p>
+                    </div>
+                    <div class="pipeline-container">
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <h5>Prospecting</h5>
+                                <span class="stage-count">18</span>
+                                <span class="stage-value">₹2.1Cr</span>
+                            </div>
+                            <div class="stage-cards">
+                                <div class="deal-card prospecting">
+                                    <div class="deal-company">Fashion Hub Inc.</div>
+                                    <div class="deal-type">New Lease</div>
+                                    <div class="deal-value">₹25L/month</div>
+                                    <div class="deal-probability">20%</div>
+                                    <div class="deal-date">Next: Site visit</div>
+                                </div>
+                                <div class="deal-card prospecting">
+                                    <div class="deal-company">Gourmet Palace</div>
+                                    <div class="deal-type">Expansion</div>
+                                    <div class="deal-value">₹18L/month</div>
+                                    <div class="deal-probability">25%</div>
+                                    <div class="deal-date">Next: Proposal</div>
+                                </div>
+                                <div class="more-deals">
+                                    <span>+16 more deals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <h5>Qualification</h5>
+                                <span class="stage-count">12</span>
+                                <span class="stage-value">₹2.8Cr</span>
+                            </div>
+                            <div class="stage-cards">
+                                <div class="deal-card qualification">
+                                    <div class="deal-company">TechZone Electronics</div>
+                                    <div class="deal-type">Lease Renewal</div>
+                                    <div class="deal-value">₹32L/month</div>
+                                    <div class="deal-probability">60%</div>
+                                    <div class="deal-date">Due: Mar 2025</div>
+                                </div>
+                                <div class="deal-card qualification">
+                                    <div class="deal-company">Beauty Boutique</div>
+                                    <div class="deal-type">New Lease</div>
+                                    <div class="deal-value">₹15L/month</div>
+                                    <div class="deal-probability">45%</div>
+                                    <div class="deal-date">Next: Meeting</div>
+                                </div>
+                                <div class="more-deals">
+                                    <span>+10 more deals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <h5>Negotiation</h5>
+                                <span class="stage-count">8</span>
+                                <span class="stage-value">₹2.3Cr</span>
+                            </div>
+                            <div class="stage-cards">
+                                <div class="deal-card negotiation">
+                                    <div class="deal-company">Premium Sports</div>
+                                    <div class="deal-type">New Lease</div>
+                                    <div class="deal-value">₹45L/month</div>
+                                    <div class="deal-probability">80%</div>
+                                    <div class="deal-date">Contract review</div>
+                                </div>
+                                <div class="deal-card negotiation">
+                                    <div class="deal-company">Coffee Culture</div>
+                                    <div class="deal-type">Renewal</div>
+                                    <div class="deal-value">₹22L/month</div>
+                                    <div class="deal-probability">75%</div>
+                                    <div class="deal-date">Terms finalization</div>
+                                </div>
+                                <div class="more-deals">
+                                    <span>+6 more deals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <h5>Closing</h5>
+                                <span class="stage-count">7</span>
+                                <span class="stage-value">₹1.5Cr</span>
+                            </div>
+                            <div class="stage-cards">
+                                <div class="deal-card closing">
+                                    <div class="deal-company">Luxury Watches</div>
+                                    <div class="deal-type">New Lease</div>
+                                    <div class="deal-value">₹35L/month</div>
+                                    <div class="deal-probability">95%</div>
+                                    <div class="deal-date">Signing: Tomorrow</div>
+                                </div>
+                                <div class="more-deals">
+                                    <span>+6 more deals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deal Types & Priorities -->
+                <section class="deal-categories mb-4">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="deal-types-container">
+                                <h4>Deal Categories</h4>
+                                <div class="deal-types-grid">
+                                    <div class="deal-type-card new-lease">
+                                        <div class="type-icon">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </div>
+                                        <div class="type-details">
+                                            <h5>New Leases</h5>
+                                            <div class="type-stats">
+                                                <span class="deal-count">28 Deals</span>
+                                                <span class="deal-value">₹5.2Cr Value</span>
+                                            </div>
+                                            <div class="type-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 65%"></div>
+                                                </div>
+                                                <small>65% Success Rate</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="deal-type-card renewal">
+                                        <div class="type-icon">
+                                            <i class="bi bi-arrow-repeat"></i>
+                                        </div>
+                                        <div class="type-details">
+                                            <h5>Lease Renewals</h5>
+                                            <div class="type-stats">
+                                                <span class="deal-count">12 Deals</span>
+                                                <span class="deal-value">₹2.8Cr Value</span>
+                                            </div>
+                                            <div class="type-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 87%"></div>
+                                                </div>
+                                                <small>87% Success Rate</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="deal-type-card expansion">
+                                        <div class="type-icon">
+                                            <i class="bi bi-arrows-expand"></i>
+                                        </div>
+                                        <div class="type-details">
+                                            <h5>Expansions</h5>
+                                            <div class="type-stats">
+                                                <span class="deal-count">5 Deals</span>
+                                                <span class="deal-value">₹0.7Cr Value</span>
+                                            </div>
+                                            <div class="type-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 40%"></div>
+                                                </div>
+                                                <small>40% Success Rate</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="urgent-deals">
+                                <h4>Urgent Actions Required</h4>
+                                <div class="urgent-list">
+                                    <div class="urgent-item high">
+                                        <div class="urgent-icon">
+                                            <i class="bi bi-exclamation-triangle-fill"></i>
+                                        </div>
+                                        <div class="urgent-details">
+                                            <strong>Zara Fashion</strong>
+                                            <p>Lease expires in 30 days</p>
+                                            <small>Renewal value: ₹39L/month</small>
+                                        </div>
+                                        <div class="urgent-priority">
+                                            <span class="priority-badge high">High</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="urgent-item medium">
+                                        <div class="urgent-icon">
+                                            <i class="bi bi-clock"></i>
+                                        </div>
+                                        <div class="urgent-details">
+                                            <strong>McDonald's</strong>
+                                            <p>Contract review pending</p>
+                                            <small>Deal value: ₹28L/month</small>
+                                        </div>
+                                        <div class="urgent-priority">
+                                            <span class="priority-badge medium">Medium</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="urgent-item low">
+                                        <div class="urgent-icon">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                        <div class="urgent-details">
+                                            <strong>Apple Store</strong>
+                                            <p>Quarterly review scheduled</p>
+                                            <small>Current: ₹45L/month</small>
+                                        </div>
+                                        <div class="urgent-priority">
+                                            <span class="priority-badge low">Low</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deal Filters -->
+                <section class="deal-filters mb-4">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-4">
+                            <label for="deal-search" class="form-label">Search Deals</label>
+                            <input type="search" class="form-control" id="deal-search" placeholder="Search by company, deal type, or value..." aria-label="Search deals">
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="deal-stage" class="form-label">Stage</label>
+                            <select class="form-select" id="deal-stage">
+                                <option value="">All Stages</option>
+                                <option value="prospecting">Prospecting</option>
+                                <option value="qualification">Qualification</option>
+                                <option value="negotiation">Negotiation</option>
+                                <option value="closing">Closing</option>
+                                <option value="won">Closed Won</option>
+                                <option value="lost">Closed Lost</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="deal-type" class="form-label">Deal Type</label>
+                            <select class="form-select" id="deal-type">
+                                <option value="">All Types</option>
+                                <option value="new-lease">New Lease</option>
+                                <option value="renewal">Lease Renewal</option>
+                                <option value="expansion">Expansion</option>
+                                <option value="renegotiation">Renegotiation</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="deal-priority" class="form-label">Priority</label>
+                            <select class="form-select" id="deal-priority">
+                                <option value="">All Priorities</option>
+                                <option value="high">High Priority</option>
+                                <option value="medium">Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100" type="button">
+                                <i class="bi bi-funnel"></i> Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deals List Table -->
+                <section class="deals-table-section">
+                    <div class="section-header mb-3">
+                        <h2>All Deals & Opportunities</h2>
+                        <div class="view-options">
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="dealsView" id="tableViewDeals" checked>
+                                <label class="btn btn-outline-primary btn-sm" for="tableViewDeals">
+                                    <i class="bi bi-list"></i> Table
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="dealsView" id="cardViewDeals">
+                                <label class="btn btn-outline-primary btn-sm" for="cardViewDeals">
+                                    <i class="bi bi-grid-3x3"></i> Cards
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="table deals-table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Deal Name">
+                                                Deal Name <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Company</th>
+                                        <th scope="col">Deal Type</th>
+                                        <th scope="col" class="sortable">
+                                            <a href="#" aria-label="Sort by Deal Value">
+                                                Deal Value <i class="bi bi-arrow-up-down"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col">Stage</th>
+                                        <th scope="col">Probability</th>
+                                        <th scope="col">Close Date</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="deal-name-info">
+                                                <strong>Zara Fashion Renewal</strong>
+                                                <small class="text-muted d-block">Ground Floor Premium Location</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="company-info-mini">
+                                                <div class="company-avatar-mini">ZA</div>
+                                                <span>Zara Fashion</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">Lease Renewal</span></td>
+                                        <td>
+                                            <div class="deal-value-info">
+                                                <strong>₹39,00,000</strong>
+                                                <small class="text-muted d-block">Monthly</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="stage-badge negotiation">Negotiation</span></td>
+                                        <td>
+                                            <div class="probability-display">
+                                                <span class="probability-value">85%</span>
+                                                <div class="probability-bar">
+                                                    <div class="probability-fill" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="close-date urgent">Feb 15, 2025</span>
+                                            <small class="text-danger d-block">23 days left</small>
+                                        </td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">AS</div>
+                                                <span>Andrew Starlin</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Deal Details" data-bs-toggle="modal" data-bs-target="#dealDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Deal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Update Stage">
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="deal-name-info">
+                                                <strong>Premium Sports New Lease</strong>
+                                                <small class="text-muted d-block">Second Floor Sports Zone</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="company-info-mini">
+                                                <div class="company-avatar-mini">PS</div>
+                                                <span>Premium Sports</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">New Lease</span></td>
+                                        <td>
+                                            <div class="deal-value-info">
+                                                <strong>₹45,00,000</strong>
+                                                <small class="text-muted d-block">Monthly</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="stage-badge closing">Closing</span></td>
+                                        <td>
+                                            <div class="probability-display">
+                                                <span class="probability-value">95%</span>
+                                                <div class="probability-bar">
+                                                    <div class="probability-fill" style="width: 95%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="close-date">Jan 30, 2025</span>
+                                            <small class="text-success d-block">8 days left</small>
+                                        </td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">SM</div>
+                                                <span>Sales Manager</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Deal Details" data-bs-toggle="modal" data-bs-target="#dealDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Deal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Update Stage">
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="deal-name-info">
+                                                <strong>TechZone Expansion</strong>
+                                                <small class="text-muted d-block">Additional 500 sq ft space</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="company-info-mini">
+                                                <div class="company-avatar-mini">TZ</div>
+                                                <span>TechZone Electronics</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-info">Expansion</span></td>
+                                        <td>
+                                            <div class="deal-value-info">
+                                                <strong>₹12,00,000</strong>
+                                                <small class="text-muted d-block">Additional Monthly</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="stage-badge qualification">Qualification</span></td>
+                                        <td>
+                                            <div class="probability-display">
+                                                <span class="probability-value">60%</span>
+                                                <div class="probability-bar">
+                                                    <div class="probability-fill" style="width: 60%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="close-date">Apr 15, 2025</span>
+                                            <small class="text-muted d-block">83 days left</small>
+                                        </td>
+                                        <td>
+                                            <div class="owner-info">
+                                                <div class="owner-avatar">AS</div>
+                                                <span>Andrew Starlin</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="View Deal Details" data-bs-toggle="modal" data-bs-target="#dealDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary" title="Edit Deal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" title="Update Stage">
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Deals table pagination" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Deal Modal -->
+    <div class="modal fade" id="addDealModal" tabindex="-1" aria-labelledby="addDealModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDealModalLabel">Add New Deal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="dealName" class="form-label required">Deal Name</label>
+                                <input type="text" class="form-control" id="dealName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealCompany" class="form-label required">Company</label>
+                                <select class="form-select" id="dealCompany" required>
+                                    <option value="">Select Company</option>
+                                    <option value="zara">Zara Fashion</option>
+                                    <option value="mcdonalds">McDonald's</option>
+                                    <option value="apple">Apple Store</option>
+                                    <option value="new">+ Add New Company</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealType" class="form-label required">Deal Type</label>
+                                <select class="form-select" id="dealType" required>
+                                    <option value="">Select Deal Type</option>
+                                    <option value="new-lease">New Lease</option>
+                                    <option value="renewal">Lease Renewal</option>
+                                    <option value="expansion">Expansion</option>
+                                    <option value="renegotiation">Renegotiation</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealValue" class="form-label required">Deal Value (₹/month)</label>
+                                <input type="number" class="form-control" id="dealValue" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealStage" class="form-label">Stage</label>
+                                <select class="form-select" id="dealStage">
+                                    <option value="prospecting" selected>Prospecting</option>
+                                    <option value="qualification">Qualification</option>
+                                    <option value="negotiation">Negotiation</option>
+                                    <option value="closing">Closing</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealProbability" class="form-label">Probability (%)</label>
+                                <input type="range" class="form-range" id="dealProbability" min="0" max="100" value="25">
+                                <div class="d-flex justify-content-between">
+                                    <small>0%</small>
+                                    <small id="probabilityValue">25%</small>
+                                    <small>100%</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="expectedCloseDate" class="form-label">Expected Close Date</label>
+                                <input type="date" class="form-control" id="expectedCloseDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealOwner" class="form-label">Deal Owner</label>
+                                <select class="form-select" id="dealOwner">
+                                    <option value="andrew" selected>Andrew Starlin</option>
+                                    <option value="sales">Sales Manager</option>
+                                    <option value="leasing">Leasing Team</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="dealNotes" class="form-label">Deal Notes</label>
+                                <textarea class="form-control" id="dealNotes" rows="3" placeholder="Additional notes about this deal..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Create Deal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deal Details Modal -->
+    <div class="modal fade" id="dealDetailsModal" tabindex="-1" aria-labelledby="dealDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dealDetailsModalLabel">Deal Details - Zara Fashion Renewal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="deal-details-tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#dealOverview" type="button">Overview</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dealActivities" type="button">Activities</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dealTerms" type="button">Terms</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dealDocuments" type="button">Documents</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="dealOverview">
+                                        <div class="deal-overview">
+                                            <h6>Deal Information</h6>
+                                            <div class="row g-3 mb-4">
+                                                <div class="col-md-6">
+                                                    <strong>Deal Name:</strong> Zara Fashion Renewal
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Company:</strong> Zara Fashion
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Deal Type:</strong> Lease Renewal
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Current Stage:</strong> Negotiation
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Deal Value:</strong> ₹39,00,000/month
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Probability:</strong> 85%
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Expected Close:</strong> Feb 15, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Deal Owner:</strong> Andrew Starlin
+                                                </div>
+                                            </div>
+
+                                            <h6>Current Terms</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <strong>Current Rent:</strong> ₹3,25,000/month
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Proposed Rent:</strong> ₹3,90,000/month
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Current Lease End:</strong> Jan 15, 2025
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Proposed Duration:</strong> 3 Years
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Space:</strong> Ground Floor - G-12
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Area:</strong> 2,500 sq ft
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="dealActivities">
+                                        <div class="deal-activity-timeline">
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker negotiation"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>Contract Terms Negotiation</strong>
+                                                        <span class="timeline-date">2 days ago</span>
+                                                    </div>
+                                                    <p>Discussed revised rental terms and lease duration. Client requested 2.5-year term instead of 3 years.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-warning">In Progress</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker meeting"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>Renewal Discussion Meeting</strong>
+                                                        <span class="timeline-date">1 week ago</span>
+                                                    </div>
+                                                    <p>In-person meeting with Regional Manager Sarah Martinez to discuss renewal terms and market rate adjustments.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-success">Completed</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker proposal"></div>
+                                                <div class="timeline-content">
+                                                    <div class="timeline-header">
+                                                        <strong>Renewal Proposal Sent</strong>
+                                                        <span class="timeline-date">2 weeks ago</span>
+                                                    </div>
+                                                    <p>Sent formal renewal proposal with updated terms and rental rates based on market analysis.</p>
+                                                    <div class="timeline-meta">
+                                                        <span class="badge bg-info">Delivered</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="dealTerms">
+                                        <div class="deal-terms-container">
+                                            <div class="terms-comparison">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="terms-card current">
+                                                            <h6>Current Terms</h6>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Monthly Rent:</span>
+                                                                <span class="term-value">₹3,25,000</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Lease Duration:</span>
+                                                                <span class="term-value">3 Years</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Security Deposit:</span>
+                                                                <span class="term-value">₹19,50,000</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Annual Increment:</span>
+                                                                <span class="term-value">5%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="terms-card proposed">
+                                                            <h6>Proposed Terms</h6>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Monthly Rent:</span>
+                                                                <span class="term-value">₹3,90,000</span>
+                                                                <span class="term-change positive">+20%</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Lease Duration:</span>
+                                                                <span class="term-value">3 Years</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Security Deposit:</span>
+                                                                <span class="term-value">₹23,40,000</span>
+                                                                <span class="term-change positive">+20%</span>
+                                                            </div>
+                                                            <div class="term-item">
+                                                                <span class="term-label">Annual Increment:</span>
+                                                                <span class="term-value">4%</span>
+                                                                <span class="term-change negative">-1%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="dealDocuments">
+                                        <div class="deal-documents-grid">
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-pdf"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Renewal Proposal.pdf</strong>
+                                                    <small class="text-muted">Updated: Jan 8, 2025</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-text"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Market Analysis.docx</strong>
+                                                    <small class="text-muted">Updated: Jan 5, 2025</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="document-item">
+                                                <div class="document-icon">
+                                                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                                                </div>
+                                                <div class="document-info">
+                                                    <strong>Financial Projections.xlsx</strong>
+                                                    <small class="text-muted">Updated: Dec 28, 2024</small>
+                                                </div>
+                                                <div class="document-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="deal-sidebar">
+                                <div class="deal-progress-card">
+                                    <h6>Deal Progress</h6>
+                                    <div class="progress-steps">
+                                        <div class="step completed">
+                                            <div class="step-icon"><i class="bi bi-check"></i></div>
+                                            <span>Prospecting</span>
+                                        </div>
+                                        <div class="step completed">
+                                            <div class="step-icon"><i class="bi bi-check"></i></div>
+                                            <span>Qualification</span>
+                                        </div>
+                                        <div class="step active">
+                                            <div class="step-icon"><i class="bi bi-clock"></i></div>
+                                            <span>Negotiation</span>
+                                        </div>
+                                        <div class="step">
+                                            <div class="step-icon"><i class="bi bi-circle"></i></div>
+                                            <span>Closing</span>
+                                        </div>
+                                    </div>
+                                    <div class="probability-gauge">
+                                        <div class="gauge-circle">
+                                            <span class="gauge-value">85%</span>
+                                        </div>
+                                        <p>Success Probability</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="deal-actions-card">
+                                    <h6>Quick Actions</h6>
+                                    <div class="action-buttons-vertical">
+                                        <button class="btn btn-success w-100 mb-2">
+                                            <i class="bi bi-arrow-right"></i> Move to Closing
+                                        </button>
+                                        <button class="btn btn-primary w-100 mb-2">
+                                            <i class="bi bi-envelope"></i> Send Follow-up
+                                        </button>
+                                        <button class="btn btn-warning w-100 mb-2">
+                                            <i class="bi bi-calendar-event"></i> Schedule Meeting
+                                        </button>
+                                        <button class="btn btn-info w-100">
+                                            <i class="bi bi-file-text"></i> Generate Report
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="deal-team-card">
+                                    <h6>Deal Team</h6>
+                                    <div class="team-member">
+                                        <div class="member-avatar">AS</div>
+                                        <div class="member-info">
+                                            <strong>Andrew Starlin</strong>
+                                            <small>Deal Owner</small>
+                                        </div>
+                                    </div>
+                                    <div class="team-member">
+                                        <div class="member-avatar">LT</div>
+                                        <div class="member-info">
+                                            <strong>Leasing Team</strong>
+                                            <small>Support</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Forecast Modal -->
+    <div class="modal fade" id="forecastModal" tabindex="-1" aria-labelledby="forecastModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forecastModalLabel">Revenue Forecast</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="forecast-summary mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="forecast-metric">
+                                    <h6>This Quarter</h6>
+                                    <div class="metric-value">₹2.1Cr</div>
+                                    <small class="text-success">+15% vs last quarter</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="forecast-metric">
+                                    <h6>Next Quarter</h6>
+                                    <div class="metric-value">₹2.8Cr</div>
+                                    <small class="text-info">Projected</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="forecast-metric">
+                                    <h6>High Probability</h6>
+                                    <div class="metric-value">₹1.9Cr</div>
+                                    <small class="text-success">>80% probability</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="forecast-metric">
+                                    <h6>Best Case</h6>
+                                    <div class="metric-value">₹3.2Cr</div>
+                                    <small class="text-warning">If all deals close</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forecast-chart-placeholder">
+                        <canvas id="forecastChart" aria-label="Revenue forecast chart"></canvas>
+                        <p class="text-center mt-3">Revenue forecast based on current pipeline and historical data</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Export Forecast</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Probability Slider Script -->
+    <script>
+        document.getElementById('dealProbability').addEventListener('input', function(e) {
+            document.getElementById('probabilityValue').textContent = e.target.value + '%';
+        });
+    </script>
+</body>
+</html>
